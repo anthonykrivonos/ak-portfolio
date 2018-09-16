@@ -1,6 +1,6 @@
 <!--
       Anthony Krivonos
-      src/styles/theme.css
+      src/index.html
       09.13.2018
 -->
 
@@ -24,6 +24,9 @@
             <!-- Local Linking -->
             <link href="styles/theme.css" rel="stylesheet">
             <link href="styles/fonts.css" rel="stylesheet">
+            <link href="styles/carousel.css" rel="stylesheet">
+
+            <!-- TODO: ADD https://textillate.js.org/ -->
       </head>
       <body>
             <!-- Navigational Bar -->
@@ -64,6 +67,26 @@
 
             <div id="fullpage">
                   <div class="section">
+                        <div class="container">
+                              <div class="row">
+                                    <div class="col col-xs-12">
+                                          <div class="font-size-md font-weight-normal padded-lg-left">
+                                                Test Carousel
+                                          </div>
+                                          <div class="carousel">
+                                                <div class="carousel-row">
+                                                      <div class="carousel-tile" style="background: #46B1C9;"></div>
+                                                      <div class="carousel-tile" style="background: #84C0C6;"></div>
+                                                      <div class="carousel-tile" style="background: #9FB7B9;"></div>
+                                                      <div class="carousel-tile" style="background: #BCC1BA;"></div>
+                                                      <div class="carousel-tile" style="background: #F2E2D2;"></div>
+                                                </div>
+                                          </div>
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+                  <div class="section">
                         <div data-aos="fade-right" class="container">
                               <div class="row">
                                     <div class="col col-lg-8 col-md-8 col-sm-12 unselectable">
@@ -83,11 +106,11 @@
                         <div class="container">
                               <div class="row">
                                     <div class="col col-xs-12 unselectable">
-                                          <div class="align-self-center unselectable font-size-sm">
-                                                <div class="padded-lg-left font-weight-normal">
+                                          <div class="align-self-center unselectable font-size-sm font-weight-normal font-size-xs">
+                                                <div class="padded-lg-left text-transform-uppercase">
                                                       Languages
                                                 </div>
-                                                <div class="d-flex collection padded-lg-left font-size-xs">
+                                                <div class="d-flex collection padded-lg-left">
                                                       <span class="chip">C#</span>
                                                       <span class="chip">C++</span>
                                                       <span class="chip">Java</span>
@@ -97,28 +120,28 @@
                                                       <span class="chip">Python</span>
                                                       <span class="chip">Swift</span>
                                                 </div>
-                                                <div class="padded-lg-left padded-lg-top font-weight-normal">
+                                                <div class="padded-lg-left padded-lg-top text-transform-uppercase">
                                                       AR/VR
                                                 </div>
-                                                <div class="d-flex collection padded-lg-left font-size-xs">
+                                                <div class="d-flex collection padded-lg-left">
                                                       <span class="chip">ARKit</span>
                                                       <span class="chip">Oculus SDK</span>
                                                       <span class="chip">Unity</span>
                                                 </div>
-                                                <div class="padded-lg-left padded-lg-top font-weight-normal">
+                                                <div class="padded-lg-left padded-lg-top text-transform-uppercase">
                                                       Serverside
                                                 </div>
-                                                <div class="d-flex collection padded-lg-left font-size-xs">
+                                                <div class="d-flex collection padded-lg-left">
                                                       <span class="chip">Express</span>
                                                       <span class="chip">Firebase</span>
                                                       <span class="chip">MongoDB</span>
                                                       <span class="chip">MySQL</span>
                                                       <span class="chip">Parse Server</span>
                                                 </div>
-                                                <div class="padded-lg-left padded-lg-top font-weight-normal">
+                                                <div class="padded-lg-left padded-lg-top text-transform-uppercase">
                                                       Frameworks
                                                 </div>
-                                                <div class="d-flex collection padded-lg-left font-size-xs">
+                                                <div class="d-flex collection padded-lg-left">
                                                       <span class="chip">Angular 6</span>
                                                       <span class="chip">Bootstrap 4</span>
                                                       <span class="chip">Ionic 4</span>
@@ -126,20 +149,20 @@
                                                       <span class="chip">Spring</span>
                                                       <span class="chip">Sass</span>
                                                 </div>
-                                                <div class="padded-lg-left padded-lg-top font-weight-normal">
+                                                <div class="padded-lg-left padded-lg-top text-transform-uppercase">
                                                       UX/UI Design
                                                 </div>
-                                                <div class="d-flex collection padded-lg-left font-size-xs">
+                                                <div class="d-flex collection padded-lg-left">
                                                       <span class="chip">Adobe CC Suite</span>
                                                       <span class="chip">Human Interface Guidelines</span>
                                                       <span class="chip">InVision</span>
                                                       <span class="chip">Material Design</span>
                                                       <span class="chip">Sketch</span>
                                                 </div>
-                                                <div class="padded-lg-left padded-lg-top font-weight-normal">
+                                                <div class="padded-lg-left padded-lg-top text-transform-uppercase">
                                                       Other
                                                 </div>
-                                                <div class="d-flex collection padded-lg-left font-size-xs">
+                                                <div class="d-flex collection padded-lg-left">
                                                       <span class="chip">Abstract Photography</span>
                                                       <span class="chip">Agile Methodology</span>
                                                       <span class="chip">Lean Startup</span>
@@ -152,6 +175,46 @@
                               </div>
                         </div>
                   </div>
+                  <div class="section">
+                              <div class="container">
+                                    <div class="row">
+                                          <div class="col col-xs-0 col-md-2 col-lg-4 unselectable separator-right">
+                                                <div class="align-self-center unselectable padded-lg">
+                                                      <div class="font-size-sm font-weight-normal text-right">
+                                                            Experience
+                                                      </div>
+                                                </div>
+                                          </div>
+                                          <div class="col col-xs-12 col-md-10 col-lg-8">
+                                                <div class="experience-group">
+                                                      <span class="experience-title font-size-sm">NBCUniversal Media, LLC</span>
+                                                      <span class="experience-year font-size-sm">2017 - Present </span>
+                                                      <span class="experience-position font-size-sm">Software Developer, Project Lead</span>
+                                                </div>
+                                                <div class="experience-group">
+                                                      <span class="experience-title font-size-sm">n-Tier fs</span>
+                                                      <span class="experience-year font-size-sm">2017</span>
+                                                      <span class="experience-position font-size-sm">Full Stack Developer</span>
+                                                </div>
+                                                <div class="experience-group">
+                                                      <span class="experience-title font-size-sm">Consolidated Edison Company of New York</span>
+                                                      <span class="experience-year font-size-sm">2015 - 2017</span>
+                                                      <span class="experience-position font-size-sm">Engineer's Aide in Electric Operations</span>
+                                                </div>
+                                                <div class="experience-group">
+                                                      <span class="experience-title font-size-sm">Olof Palme Peace Foundation International</span>
+                                                      <span class="experience-year font-size-sm">2015 - 2016</span>
+                                                      <span class="experience-position font-size-sm">Informational Website Developer</span>
+                                                </div>
+                                                <div class="experience-group">
+                                                      <span class="experience-title font-size-sm">Brewery Recording Studio</span>
+                                                      <span class="experience-year font-size-sm">2013 - 2016</span>
+                                                      <span class="experience-position font-size-sm">Engineering Intern</span>
+                                                </div>
+                                          </div>
+                                    </div>
+                              </div>
+                        </div>
             </div>
 
             <!-- AOS -->
@@ -222,7 +285,7 @@
 
                         },
                         afterLoad: function(origin, destination, direction){
-
+                              // Called on slide change
                         },
                         afterRender: function(){
 
@@ -237,7 +300,6 @@
 
                         },
                         onSlideLeave: function(section, origin, destination, direction) {
-
                         }
                   });
                   fullPageJS.setAllowScrolling(true);

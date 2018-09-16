@@ -33,7 +33,7 @@ body {
 }
 .navbar {
       z-index: 1;
-      background: white;
+      background: linear-gradient(white, rgba(0, 0, 0, 0));
 }
 .navbar-logo {
       height: 36px;
@@ -50,6 +50,11 @@ body {
       cursor: default;
 }
 
+.text-transform-uppercase {
+      text-transform: uppercase;
+}
+
+/* Custom Padding */
 .padded-sm {
       padding: 8px !important;
 }
@@ -107,6 +112,7 @@ body {
       left: 0 !important;
 }
 
+/* Container Styles */
 .section {
       width: 100vw !important;
       height: 100vh !important;
@@ -153,6 +159,50 @@ button:hover, a:hover, .chip:hover {
 }
 .chip:hover {
       box-shadow: var(--shadow-flat);
+}
+
+/* Custom Separator Styling */
+.separator-left, .separator-right {
+      border-radius: 1px;
+      vertical-align: middle;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+}
+.separator-left {
+      border-left: solid 2px lightgray;
+      text-align: left;
+}
+.separator-right {
+      border-right: solid 2px lightgray;
+      text-align: right;
+      margin-left: auto;
+      justify-content: flex-end;
+}
+
+/* Custom Experience Group */
+.experience-group {
+      padding: 8px 32px 8px 32px;
+}
+.experience-title {
+      width: 70%;
+      float: left;
+      font-weight: bold;
+}
+.experience-year {
+      width: 30%;
+      float: right;
+      text-align: right;
+}
+.experience-position {
+      width: 100%;
+      font-style: italic;
 }
 
 /* Horizontal Scroll Collection */
