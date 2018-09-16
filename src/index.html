@@ -1,0 +1,176 @@
+<!--
+      Anthony Krivonos
+      src/styles/theme.css
+      09.13.2018
+-->
+
+<!DOCTYPE HTML>
+<html>
+      <head>
+            <title>Anthony Krivonos</title>
+
+            <!-- Meta Tags -->
+            <meta charset="UTF-8">
+            <meta name="author" content="Anthony Krivonos">
+            <meta name="description" content="Portfolio website displaying Anthony Krivonos's experience, accomplishments, and skills.">
+            <meta name="keywords" content="Anthony,Krivonos,Software,Developer,Portfolio,Front-End,UI,UX,Designer,Developer">
+
+            <!-- Bootstrap -->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+            <!-- Local Linking -->
+            <link href="styles/theme.css" rel="stylesheet">
+            <link href="styles/fonts.css" rel="stylesheet">
+      </head>
+      <body>
+            <!-- Navigational Bar -->
+            <nav class="navbar navbar-expand-lg navbar-light">
+                  <a class="navbar-brand" rel="home" href="" title="Anthony Krivonos">
+                    <img class="navbar-logo" src="images/icons/logo.png">
+                  </a>
+                  <a class="navbar-brand" data-aos="zoom-in" href="">Anthony Krivonos</a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" data-aos="fade-left" id="navbarText">
+                        <ul class="navbar-nav ml-auto">
+                              <li class="nav-item active">
+                                    <a class="nav-link" href="#">About<span class="sr-only">(current)</span></a>
+                              </li>
+                              <li class="nav-item">
+                                    <a class="nav-link" href="#">Skills</a>
+                              </li>
+                              <li class="nav-item">
+                                    <a class="nav-link" href="#">Experience</a>
+                              </li>
+                              <li class="nav-item">
+                                    <a class="nav-link" href="#">Projects</a>
+                              </li>
+                              <li class="nav-item">
+                                    <a class="nav-link" href="#">Interactables</a>
+                              </li>
+                              <li class="nav-item">
+                                    <a class="nav-link" href="#">Articles</a>
+                              </li>
+                              <li class="nav-item">
+                                    <a class="nav-link" href="#">Contact</a>
+                              </li>
+                        </ul>
+                  </div>
+            </nav>
+
+            <div id="fullpage">
+                  <div class="section">
+                        <div data-aos="fade-right" class="container">
+                              <div class="row">
+                                    <div class="col col-lg-8 col-md-8 col-sm-12 unselectable">
+                                          <div class="align-self-center">
+                                                <div class="font-size-md">
+                                                      Hi, I'm <b>Anthony</b>!
+                                                </div>
+                                                <div class="font-size-md">
+                                                      I’m a TEST and a student from New York City who loves all things tech, from mobile development to AR to UX to everything in between.
+                                                </div>
+                                          </div>
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+                  <div class="section">
+
+                  </div>
+            </div>
+
+            <!-- AOS -->
+            <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+            <script>
+                  AOS.init();
+            </script>
+
+            <!-- FullPage.js -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.2/vendors/easings.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.2/vendors/scrolloverflow.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.2/fullpage.min.js"></script>
+            <script>
+                  var fullPageJS = new fullpage('#fullpage', {
+                        //Navigation
+                        menu: '#menu',
+                        lockAnchors: true,
+                        anchors: [ 'About', 'Skills', 'Experience', 'Projects', 'Interactables', 'Articles', 'Contact' ],
+                        showActiveTooltip: false,
+                        slidesNavigation: false,
+                        slidesNavPosition: 'top',
+
+                        //Scrolling
+                        css3: true,
+                        scrollingSpeed: 700,
+                        autoScrolling: true,
+                        fitToSection: true,
+                        fitToSectionDelay: 1000,
+                        loopBottom: true,
+                        loopTop: true,
+                        continuousVertical: true,
+                        continuousHorizontal: false,
+                        scrollHorizontally: false,
+                        interlockedSlides: false,
+                        dragAndMove: false,
+                        offsetSections: false,
+                        fadingEffect: true,
+                        scrollOverflow: true,
+                        scrollOverflowReset: false,
+                        touchSensitivity: 15,
+                        normalScrollElementTouchThreshold: 5,
+                        bigSectionsDestination: null,
+
+                        //Accessibility
+                        keyboardScrolling: true,
+                        animateAnchor: true,
+                        recordHistory: true,
+
+                        //Design
+                        controlArrows: false,
+                        verticalCentered: true,
+                        paddingTop: '0',
+                        paddingBottom: '0px',
+                        fixedElements: '#header, .footer',
+                        responsiveSlides: true,
+                        parallax: true,
+                        parallaxOptions: {type: 'reveal', percentage: 50, property: 'translate'},
+
+                        //Custom selectors
+                        sectionSelector: '.section',
+                        slideSelector: '.slide',
+
+                        lazyLoading: true,
+
+                        //events
+                        onLeave: function(origin, destination, direction) {
+
+                        },
+                        afterLoad: function(origin, destination, direction){
+
+                        },
+                        afterRender: function(){
+
+                        },
+                        afterResize: function(width, height) {
+
+                        },
+                        afterResponsive: function(isResponsive) {
+
+                        },
+                        afterSlideLoad: function(section, origin, destination, direction) {
+
+                        },
+                        onSlideLeave: function(section, origin, destination, direction) {
+
+                        }
+                  });
+                  fullPageJS.setAllowScrolling(true);
+            </script>
+      </body>
+</html>

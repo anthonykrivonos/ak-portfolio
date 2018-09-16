@@ -1,0 +1,75 @@
+/*
+      Anthony Krivonos
+      src/styles/theme.css
+      09.13.2018
+*/
+
+:root {
+
+      /* Standard Spacing */
+      --spacing-increment: 8;
+      --gutter-width: var(--spacing-increment)px;
+      --half-gutter-width: calc((var(--gutter-width) * 0.5));
+      --outer-margin: calc(var(--spacing-increment) * 2)px;
+      --gutter-compensation: calc((var(--gutter-width) * 0.5) * -1);
+      --container-sm: calc(var(--sm-min) + var(--gutter-width));
+      --container-md: calc(var(--md-min) + var(--gutter-width));
+      --container-lg: calc(var(--lg-min) + var(--gutter-width));
+
+      /* Animatables */
+      --transition-slow:      1s;
+      --transition-standard:  0.5s;
+      --transition-fast:      0.3s;
+
+      /* Box Shadows */
+      --shadow-none:    0 0 0 rgba(0,0,0,0), 0 0 0 rgba(0,0,0,0);
+      --shadow-flat:    0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.12);
+      --shadow-raised:  0 4px 8px rgba(0,0,0,0.24), 0 4px 8px rgba(0,0,0,0.24);
+
+}
+
+body {
+      font-family: Chivo !important;
+      font-weight: lighter;
+}
+
+.navbar {
+      z-index: 1;
+}
+
+#fullpage {
+      width: 100vw !important;
+      height: 100vh !important;
+      position: absolute !important;
+      z-index: 0;
+      top: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      left: 0 !important;
+}
+
+.container {
+      height: 100%;
+      display: flex;
+      align-items: center;
+}
+
+/* Font Sizes */
+.font-size-lg {
+      font-size: 40pt;
+}
+.font-size-md {
+      font-size: 26pt;
+}
+.font-size-sm {
+      font-size: 18pt;
+}
+.font-size-xs {
+      font-size: 12pt;
+}
+
+.navbar-logo {
+      height: 36px;
+      margin-top: -3px;
+      margin-right: 7px;
+}

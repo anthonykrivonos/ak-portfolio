@@ -1,0 +1,69 @@
+/*
+      Anthony Krivonos
+      src/styles/fonts.css
+      09.14.2018
+*/
+
+/* Chivo-Regular */
+@font-face {
+    font-family: Chivo;
+    src: url('../fonts/chivo/Chivo-Regular.ttf');
+    font-weight: 500;
+    font-style: normal;
+}
+
+/* Chivo-Italic */
+@font-face {
+    font-family: Chivo;
+    src: url('../fonts/chivo/Chivo-Italic.ttf');
+    font-weight: 500;
+    font-style: italic;
+}
+
+/* Chivo-Light */
+@font-face {
+    font-family: Chivo;
+    src: url('../fonts/chivo/Chivo-Light.ttf');
+    font-weight: 200;
+    font-style: normal;
+}
+
+/* Chivo-LightItalic */
+@font-face {
+    font-family: Chivo;
+    src: url('../fonts/chivo/Chivo-LightItalic.ttf');
+    font-weight: 200;
+    font-style: italic;
+}
+
+/* Chivo-Bold */
+@font-face {
+    font-family: Chivo;
+    src: url('../fonts/chivo/Chivo-Bold.ttf');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Chivo-BoldItalic */
+@font-face {
+    font-family: Chivo;
+    src: url('../fonts/chivo/Chivo-BoldItalic.ttf');
+    font-weight: 700;
+    font-style: italic;
+}
+
+/* Chivo-Black */
+@font-face {
+    font-family: Chivo;
+    src: url('../fonts/chivo/Chivo-Black.ttf');
+    font-weight: 900;
+    font-style: normal;
+}
+
+/* Chivo-BlackItalic */
+@font-face {
+    font-family: Chivo;
+    src: url('../fonts/chivo/Chivo-BlackItalic.ttf');
+    font-weight: 900;
+    font-style: italic;
+}
