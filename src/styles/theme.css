@@ -101,6 +101,53 @@ body {
       padding-left: 32px !important;
 }
 
+/* Custom Margin */
+.margin-sm {
+      margin: 8px !important;
+}
+.margin-sm-top {
+      margin-top: 8px !important;
+}
+.margin-sm-right {
+      margin-right: 8px !important;
+}
+.margin-sm-bottom {
+      margin-bottom: 8px !important;
+}
+.margin-sm-left {
+      margin-left: 8px !important;
+}
+.margin-md {
+      margin: 16px !important;
+}
+.margin-md-top {
+      margin-top: 16px !important;
+}
+.margin-md-right {
+      margin-right: 16px !important;
+}
+.margin-md-bottom {
+      margin-bottom: 16px !important;
+}
+.margin-md-left {
+      margin-left: 16px !important;
+}
+.margin-lg {
+      margin: 32px !important;
+}
+.margin-lg-top {
+      margin-top: 32px !important;
+}
+.margin-lg-right {
+      margin-right: 32px !important;
+}
+.margin-lg-bottom {
+      margin-bottom: 32px !important;
+}
+.margin-lg-left {
+      margin-left: 32px !important;
+}
+
 #fullpage {
       width: 100vw !important;
       height: 100vh !important;
@@ -205,6 +252,79 @@ button:hover, a:hover, .chip:hover {
       font-style: italic;
 }
 
+/* Custom Carousel Elements */
+.carousel-image {
+      width: 100%;
+      height: 100%;
+      background-position: top !important;
+      background-repeat: no-repeat !important;
+      background-size: cover !important;
+      transition: 0.5s;
+}
+.carousel-tile:hover .carousel-image {
+      height: 200px;
+}
+.carousel-text {
+      width: 100%;
+      height: 0;
+      padding: 0;
+      opacity: 0;
+      transition: 0.5s;
+}
+.carousel-tile:hover .carousel-text {
+      height: auto;
+      padding: 8px;
+      opacity: 1;
+}
+.carousel-title {
+      width: 70%;
+      float: left;
+      font-weight: bold;
+}
+.carousel-subtitle {
+      width: 30%;
+      float: right;
+      text-align: right;
+      font-style: italic;
+}
+.carousel-body {
+      width: 100%;
+      float: left;
+      display: block;
+}
+.carousel-footer {
+      width: 100%;
+      float: left;
+      display: block;
+      text-align: center;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 4px;
+      opacity: 0.8;
+      font-size: 8pt;
+      text-transform: uppercase;
+}
+.carousel-row .carousel-tile {
+      box-shadow: var(--shadow-flat);
+}
+
+/* Interactables Section Button */
+.interactable-button {
+      background: none;
+      border: none;
+      outline: none !important;
+}
+.interactable-button:hover {
+      color: gray;
+}
+.interactable-frame {
+      margin-left: 32px;
+      width: 80%;
+      height: 100%;
+      background: gray;
+}
+
 /* Horizontal Scroll Collection */
 .collection {
       overflow-x: auto !important;
@@ -242,6 +362,4 @@ button:hover, a:hover, .chip:hover {
 ::-webkit-scrollbar-thumb {
       background: white;
       border-radius: 5px;
-}
-::-webkit-scrollbar-thumb:hover {
 }
