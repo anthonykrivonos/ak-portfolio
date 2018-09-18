@@ -11,6 +11,7 @@
 
             <!-- Meta Tags -->
             <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
             <meta name="author" content="Anthony Krivonos">
             <meta name="description" content="Portfolio website displaying Anthony Krivonos's experience, accomplishments, and skills.">
             <meta name="keywords" content="Anthony,Krivonos,Software,Developer,Portfolio,Front-End,UI,UX,Designer,Developer">
@@ -25,6 +26,19 @@
             <link href="styles/theme.css" rel="stylesheet">
             <link href="styles/fonts.css" rel="stylesheet">
             <link href="styles/carousel.css" rel="stylesheet">
+            <link href="styles/typewriter.css" rel="stylesheet">
+
+            <!-- Carousel Restyling -->
+            <style>
+                  :root {
+                        --carousel-tile-height: 40vh;
+                        --carousel-tile-width:  calc(var(--carousel-tile-height) / (4 / 5));
+                  }
+            </style>
+
+            <!-- Local Scripts -->
+            <script src="scripts/main.js" type="text/javascript"></script>
+            <script src="scripts/extensions.js" type="text/javascript"></script>
 
             <!-- TODO: ADD https://textillate.js.org/ -->
       </head>
@@ -76,7 +90,7 @@
                                                       Hi, I'm <span class="font-weight-bold">Anthony</span>!
                                                 </div>
                                                 <div class="font-size-md">
-                                                      I’m a TEST and a student from New York City who loves all things tech, from mobile development to AR to UX to everything in between.
+                                                      I’m <span id="bragEl" class="typewriter">a developer</span> from NYC who loves all things tech, from mobile development to AR to UX to everything in between.
                                                 </div>
                                           </div>
                                     </div>
@@ -204,12 +218,6 @@
                                                 My Projects and Startups
                                           </div>
                                           <div class="carousel">
-                                                <style>
-                                                      :root {
-                                                            --carousel-tile-width:  300px;
-                                                            --carousel-tile-height: 350px;
-                                                      }
-                                                </style>
                                                 <div class="carousel-row">
                                                       <div class="carousel-tile">
                                                             <div class="carousel-image" style="background: url('https://firebasestorage.googleapis.com/v0/b/anthony-krivonos-website.appspot.com/o/projects%2Finstastore_isometric.jpg?alt=media&token=9af7bdb6-1ff8-45bb-a06e-4475e9d09a30')"></div>
@@ -340,6 +348,9 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.2/vendors/scrolloverflow.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.2/fullpage.min.js"></script>
             <script>
+                  // Interval in which the brag text is stored
+                  var bragInterval = brag(document.getElementById('bragEl'), 400, 3000);
+
                   var fullPageJS = new fullpage('#fullpage', {
                         //Navigation
                         menu: '#menu',
@@ -351,12 +362,13 @@
 
                         //Scrolling
                         css3: true,
-                        scrollingSpeed: 700,
+                        scrollBar: true,
+                        scrollingSpeed: 500,
                         autoScrolling: true,
                         fitToSection: true,
-                        fitToSectionDelay: 1000,
-                        loopBottom: true,
-                        loopTop: true,
+                        fitToSectionDelay: 2000,
+                        loopBottom: false,
+                        loopTop: false,
                         continuousVertical: true,
                         continuousHorizontal: false,
                         scrollHorizontally: false,
@@ -397,6 +409,16 @@
                         },
                         afterLoad: function(origin, destination, direction){
                               // Called on slide change
+                              if (origin) {
+                                    switch (origin.index) {
+                                          case 0:
+                                                if (bragInterval) { clearInterval(bragInterval) }
+                                                bragInterval = brag(document.getElementById('bragEl'), 400, 3000);
+                                                break;
+                                          default:
+                                                break;
+                                    }
+                              }
                         },
                         afterRender: function(){
 

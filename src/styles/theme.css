@@ -35,11 +35,6 @@ body {
       z-index: 1;
       background: linear-gradient(white, rgba(0, 0, 0, 0));
 }
-.navbar-logo {
-      height: 36px;
-      margin-top: -3px;
-      margin-right: 7px;
-}
 
 /* Prevents User Selection of Element */
 .unselectable {
@@ -196,18 +191,6 @@ button:hover, a:hover, .chip:hover {
       cursor: pointer;
 }
 
-/* Custom Tag Chips */
-.chip {
-      box-shadow: var(--shadow-raised);
-      border: solid 2px black;
-      border-radius: 8px;
-      padding: 4px 8px 4px 8px;
-      margin: 5px;
-}
-.chip:hover {
-      box-shadow: var(--shadow-flat);
-}
-
 /* Custom Separator Styling */
 .separator-left, .separator-right {
       border-radius: 1px;
@@ -262,7 +245,7 @@ button:hover, a:hover, .chip:hover {
       transition: 0.5s;
 }
 .carousel-tile:hover .carousel-image {
-      height: 200px;
+      height: 60%;
 }
 .carousel-text {
       width: 100%;
@@ -327,26 +310,10 @@ button:hover, a:hover, .chip:hover {
 
 /* Horizontal Scroll Collection */
 .collection {
-      overflow-x: auto !important;
-      overflow-y: hidden;
-      white-space: nowrap;
-      -webkit-overflow-scrolling: touch;
-      max-width: 100%;
-      width: 100% !important;
-}
 
-/* Font Sizes */
-.font-size-lg {
-      font-size: 40pt;
 }
-.font-size-md {
-      font-size: 26pt;
-}
-.font-size-sm {
-      font-size: 18pt;
-}
-.font-size-xs {
-      font-size: 12pt;
+.collection * {
+      display: inline-block !important;
 }
 
 /* Custom Scrollbar */
@@ -362,4 +329,74 @@ button:hover, a:hover, .chip:hover {
 ::-webkit-scrollbar-thumb {
       background: white;
       border-radius: 5px;
+}
+
+/* Font Sizes */
+.font-size-lg {
+      font-size: 6vh;
+}
+.font-size-md {
+      font-size: 4vh;
+}
+.font-size-sm {
+      font-size: 3.25vh;
+}
+.font-size-xs {
+      font-size: 2.5vh;
+}
+.navbar-logo {
+      display: none;
+}
+
+/* Responsive Styling */
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 0px) {
+      /* Custom Tag Chips */
+      .chip {
+            box-shadow: var(--shadow-raised);
+            border: solid 1px black;
+            border-radius: 4px;
+            padding: 4px 8px 4px 8px;
+            margin: 5px;
+      }
+      .chip:hover {
+            box-shadow: var(--shadow-flat);
+      }
+
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 321px) {
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 481px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 769px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 993px) {
+      /* Custom Tag Chips */
+      .chip {
+            box-shadow: var(--shadow-raised);
+            border: solid 2px black;
+            border-radius: 8px;
+            padding: 4px 8px 4px 8px;
+            margin: 5px;
+      }
+      .chip:hover {
+            box-shadow: var(--shadow-flat);
+      }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
 }
