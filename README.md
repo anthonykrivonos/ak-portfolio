@@ -8,7 +8,7 @@ View the legacy *anthonykrivonos.com* repo [here](https://github.com/anthonykriv
 
 ## Built With
 
-* [AOS](https://michalsnik.github.io/aos/) - Scroll Animations
+* [Animate.css](https://daneden.github.io/animate.css/) - CSS Animations
 * [Bootstrap 4](https://getbootstrap.com/) - Responsive web styling
 * [Firebase](https://firebase.google.com/) - Hosting
 * [FullPage.js](https://alvarotrigo.com/fullPage/) - Pagination

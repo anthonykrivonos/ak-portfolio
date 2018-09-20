@@ -23,17 +23,33 @@
 
       /* Box Shadows */
       --shadow-none:    0 0 0 rgba(0,0,0,0), 0 0 0 rgba(0,0,0,0);
-      --shadow-flat:    0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.12);
-      --shadow-raised:  0 4px 8px rgba(0,0,0,0.24), 0 4px 8px rgba(0,0,0,0.24);
+      --shadow-flat:    0 0 1px 3px rgba(0,0,0,0.12), 0 0 1px 3px rgba(0,0,0,0.12);
+      --shadow-raised:  0 0 15px 1px rgba(0,0,0,0.12), 0 0 15px 1px rgba(0,0,0,0.12);
+      --shadow-lifted:  0 0 30px 1px rgba(0,0,0,0.12), 0 0 30px 1px rgba(0,0,0,0.12);
 }
 
 body {
       font-family: Chivo !important;
       font-weight: lighter;
+      overflow: hidden !important;
 }
 .navbar {
       z-index: 1;
       background: linear-gradient(white, rgba(0, 0, 0, 0));
+}
+
+/* Transition Classes */
+.transition {
+      transition: var(--transition-standard);
+      -webkit-transition: var(--transition-standard);
+}
+.transition-slow {
+      transition: var(--transition-slow);
+      -webkit-transition: var(--transition-slow);
+}
+.transition-fast {
+      transition: var(--transition-fast);
+      -webkit-transition: var(--transition-fast);
 }
 
 /* Prevents User Selection of Element */
@@ -158,6 +174,7 @@ body {
 .section {
       width: 100vw !important;
       height: 100vh !important;
+      overflow: hidden !important;
 }
 .container {
       height: 100%;
@@ -167,6 +184,7 @@ body {
       align-items: center;
       margin: 0 !important;
       padding: 0 !important;
+      overflow: hidden !important;
 }
 .col {
       padding: 0 !important;
@@ -243,9 +261,13 @@ button:hover, a:hover, .chip:hover {
       background-repeat: no-repeat !important;
       background-size: cover !important;
       transition: 0.5s;
+      filter: grayscale(100%);
+      opacity: 0.4;
 }
 .carousel-tile:hover .carousel-image {
       height: 60%;
+      filter: grayscale(0%);
+      opacity: 1;
 }
 .carousel-text {
       width: 100%;
@@ -308,6 +330,19 @@ button:hover, a:hover, .chip:hover {
       background: gray;
 }
 
+/* Brag Card */
+.brag-cards {
+      padding: 4vw !important;
+}
+.brag-cards .col {
+      padding: 2vw !important;
+}
+.brag-cards .card {
+      border-radius: 0px;
+      border: none;
+      box-shadow: var(--shadow-lifted);
+}
+
 /* Horizontal Scroll Collection */
 .collection {
 
@@ -318,17 +353,12 @@ button:hover, a:hover, .chip:hover {
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-      transition: var(--transition-standard);
-      width: 10px !important;
-      height: 10px !important;
+      height: 0px !important;
+      width: 0px !important;
 }
 ::-webkit-scrollbar-track {
-      background: lightgray;
-      box-shadow: var(--shadow-flat);
 }
 ::-webkit-scrollbar-thumb {
-      background: white;
-      border-radius: 5px;
 }
 
 /* Font Sizes */
@@ -345,7 +375,29 @@ button:hover, a:hover, .chip:hover {
       font-size: 2.5vh;
 }
 .navbar-logo {
-      display: none;
+      height: 30px;
+      margin-top: -5px;
+}
+
+/* Section 0 Items */
+#hiText {
+      position: absolute;
+      margin-top: -8vh !important;
+}
+#avatar {
+      width: 0vh;
+      height: 0vh;
+      position: absolute;
+      z-index: -1;
+      bottom: 0;
+      right: 0;
+      transition: var(--transition-standard);
+      -webkit-transition: var(--transition-standard);
+}
+#avatar.grow {
+      width: 90vh;
+      height: 90vh;
+      right: -20vw;
 }
 
 /* Responsive Styling */

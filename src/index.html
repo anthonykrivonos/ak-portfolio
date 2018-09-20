@@ -22,6 +22,9 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+            <!-- Animate.css -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
             <!-- Local Linking -->
             <link href="styles/theme.css" rel="stylesheet">
             <link href="styles/fonts.css" rel="stylesheet">
@@ -44,15 +47,15 @@
       </head>
       <body>
             <!-- Navigational Bar -->
-            <nav class="navbar navbar-expand-lg navbar-light unselectable">
+            <!--<nav class="navbar navbar-expand-lg navbar-light unselectable">
                   <a class="navbar-brand" rel="home" href="" title="Anthony Krivonos">
                     <img class="navbar-logo" src="images/icons/logo.png">
                   </a>
-                  <a class="navbar-brand" data-aos="zoom-in" href="">Anthony Krivonos</a>
+                  <a class="navbar-brand" href="">Anthony Krivonos</a>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                   </button>
-                  <div class="collapse navbar-collapse" data-aos="fade-left" id="navbarText">
+                  <div class="collapse navbar-collapse" id="navbarText">
                         <ul class="navbar-nav ml-auto">
                               <li class="nav-item active">
                                     <a class="nav-link" href="#">About<span class="sr-only">(current)</span></a>
@@ -77,94 +80,44 @@
                               </li>
                         </ul>
                   </div>
-            </nav>
+            </nav>-->
 
             <!-- Full Page Content -->
             <div id="fullpage">
                   <div class="section">
-                        <div data-aos="fade-right" class="container">
+                        <div class="container">
                               <div class="row">
                                     <div class="col col-lg-8 col-md-8 col-sm-12 unselectable">
                                           <div class="align-self-center unselectable padded-lg">
-                                                <div class="font-size-md">
+                                                <div id="hiText" class="font-size-md">
                                                       Hi, I'm <span class="font-weight-bold">Anthony</span>!
                                                 </div>
-                                                <div class="font-size-md">
+                                                <div id="aboutText" class="font-size-md">
                                                       I’m <span id="bragEl" class="typewriter">a developer</span> from NYC who loves all things tech, from mobile development to AR to UX to everything in between.
                                                 </div>
                                           </div>
                                     </div>
+                                    <img id="avatar" ondragstart="return false" src="images/headshots/headshot-0.png">
                               </div>
                         </div>
                   </div>
                   <div class="section">
+                        <div id="skillsTitle" class="font-size-md text-center padded-md-top"><span class="typewriter">I'm decent at...</span></div>
                         <div class="container">
-                              <div class="row">
-                                    <div class="col col-xs-12 unselectable">
-                                          <div class="align-self-center unselectable font-size-sm font-weight-normal font-size-xs">
-                                                <div class="padded-lg-left text-transform-uppercase">
-                                                      Languages
-                                                </div>
-                                                <div class="d-flex collection padded-lg-left">
-                                                      <span class="chip">C#</span>
-                                                      <span class="chip">C++</span>
-                                                      <span class="chip">Java</span>
-                                                      <span class="chip">JavaScript</span>
-                                                      <span class="chip">Node.js</span>
-                                                      <span class="chip">PHP</span>
-                                                      <span class="chip">Python</span>
-                                                      <span class="chip">Swift</span>
-                                                </div>
-                                                <div class="padded-lg-left padded-lg-top text-transform-uppercase">
-                                                      AR/VR
-                                                </div>
-                                                <div class="d-flex collection padded-lg-left">
-                                                      <span class="chip">ARKit</span>
-                                                      <span class="chip">Oculus SDK</span>
-                                                      <span class="chip">Unity</span>
-                                                </div>
-                                                <div class="padded-lg-left padded-lg-top text-transform-uppercase">
-                                                      Serverside
-                                                </div>
-                                                <div class="d-flex collection padded-lg-left">
-                                                      <span class="chip">Express</span>
-                                                      <span class="chip">Firebase</span>
-                                                      <span class="chip">MongoDB</span>
-                                                      <span class="chip">MySQL</span>
-                                                      <span class="chip">Parse Server</span>
-                                                </div>
-                                                <div class="padded-lg-left padded-lg-top text-transform-uppercase">
-                                                      Frameworks
-                                                </div>
-                                                <div class="d-flex collection padded-lg-left">
-                                                      <span class="chip">Angular 6</span>
-                                                      <span class="chip">Bootstrap 4</span>
-                                                      <span class="chip">Ionic 4</span>
-                                                      <span class="chip">Selenium Webdriver</span>
-                                                      <span class="chip">Spring</span>
-                                                      <span class="chip">Sass</span>
-                                                </div>
-                                                <div class="padded-lg-left padded-lg-top text-transform-uppercase">
-                                                      UX/UI Design
-                                                </div>
-                                                <div class="d-flex collection padded-lg-left">
-                                                      <span class="chip">Adobe CC Suite</span>
-                                                      <span class="chip">Human Interface Guidelines</span>
-                                                      <span class="chip">InVision</span>
-                                                      <span class="chip">Material Design</span>
-                                                      <span class="chip">Sketch</span>
-                                                </div>
-                                                <div class="padded-lg-left padded-lg-top text-transform-uppercase">
-                                                      Other
-                                                </div>
-                                                <div class="d-flex collection padded-lg-left">
-                                                      <span class="chip">Abstract Photography</span>
-                                                      <span class="chip">Agile Methodology</span>
-                                                      <span class="chip">Lean Startup</span>
-                                                      <span class="chip">Startup Valuation</span>
-                                                      <span class="chip">Team Management</span>
-                                                      <span class="chip">User Experience Research</span>
-                                                </div>
+                              <div class="row brag-cards">
+                                    <div class="col col-md-4 col-12">
+                                          <div class="card">
+                                                test
+                                          </div>
+                                    </div>
+                                    <div class="col col-md-4 col-12">
+                                          <div class="card">
+                                                test
+                                          </div>
+                                    </div>
+                                    <div class="col col-md-4 col-12">
+                                          <div class="card">
+                                                test
                                           </div>
                                     </div>
                               </div>
@@ -336,20 +289,20 @@
                   </div>
             </div>
 
-            <!-- AOS -->
-            <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-            <script>
-                  AOS.init();
-            </script>
-
             <!-- FullPage.js -->
             <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.2/vendors/easings.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.2/vendors/scrolloverflow.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.2/fullpage.min.js"></script>
             <script>
                   // Interval in which the brag text is stored
-                  var bragInterval = brag(document.getElementById('bragEl'), 400, 3000);
+                  var typewriterSpeed = 400;
+                  var typewriterDelay = 2000;
+                  var bragInterval = brag(document.getElementById('bragEl'), typewriterSpeed, typewriterDelay);
+
+                  // Section 0 Animations
+                  $("#hiText").animate("slideInLeft delay-2s");
+                  $("#aboutText").animate("slideInLeft delay-2s");
+                  randomizeHue($("#avatar"), 250);
 
                   var fullPageJS = new fullpage('#fullpage', {
                         //Navigation
@@ -362,18 +315,17 @@
 
                         //Scrolling
                         css3: true,
-                        scrollBar: true,
-                        scrollingSpeed: 500,
+                        scrollBar: false,
+                        scrollingSpeed: 900,
                         autoScrolling: true,
                         fitToSection: true,
-                        fitToSectionDelay: 2000,
-                        loopBottom: false,
-                        loopTop: false,
+                        scrollDelay: 1000,
+                        fitToSectionDelay: 100,
                         continuousVertical: true,
                         continuousHorizontal: false,
                         scrollHorizontally: false,
-                        interlockedSlides: false,
-                        dragAndMove: false,
+                        interlockedSlides: true,
+                        dragAndMove: true,
                         offsetSections: false,
                         fadingEffect: true,
                         scrollOverflow: true,
@@ -401,19 +353,53 @@
                         sectionSelector: '.section',
                         slideSelector: '.slide',
 
-                        lazyLoading: true,
+                        lazyLoading: false,
 
-                        //events
                         onLeave: function(origin, destination, direction) {
-
+                              // Called on slide leave
+                              Array.from(document.getElementsByClassName(".skill-type")).forEach((element) => {
+                                    typewriter(element, 500);
+                              });
+                              if (origin) {
+                                    switch (origin.index) {
+                                          case 0:
+                                                // Section 0 Animations
+                                                $("#aboutText").animate("slideOutLeft");
+                                                $("#avatar").animate("fadeOutRight");
+                                                break;
+                                          case 1:
+                                                $("#skillsTitle").animate("fadeOutUpBig");
+                                                break;
+                                          default:
+                                                break;
+                                    }
+                              }
+                              if (destination) {
+                                    switch (destination.index) {
+                                          case 0:
+                                                // Section 0 Animations
+                                                $("#aboutText").animate("slideInLeft delay-2s");
+                                                $("#avatar").animate("fadeInRight delay-2s");
+                                                break;
+                                          case 1:
+                                                $("#skillsTitle").animate("fadeInDownBig");
+                                                break;
+                                          default:
+                                                break;
+                                    }
+                              }
                         },
-                        afterLoad: function(origin, destination, direction){
+                        afterLoad: function(origin, destination, direction) {
                               // Called on slide change
                               if (origin) {
                                     switch (origin.index) {
                                           case 0:
                                                 if (bragInterval) { clearInterval(bragInterval) }
-                                                bragInterval = brag(document.getElementById('bragEl'), 400, 3000);
+                                                bragInterval = brag(document.getElementById('bragEl'), typewriterSpeed, typewriterDelay);
+
+                                                // Section 0 Animations
+                                                $("#aboutText").animate("slideInLeft delay-2s");
+                                                $("#avatar").animate("fadeInRight delay-2s");
                                                 break;
                                           default:
                                                 break;
@@ -421,10 +407,17 @@
                               }
                         },
                         afterRender: function(){
-
+                              // Section 0 Animationsv
+                              setTimeout(() => {
+                                    $("#avatar").addClass("grow");
+                                    $("#hiText").animate("hinge slow", () => {
+                                          $("#aboutText").addClass("transition");
+                                          $("#hiText").hide();
+                                    });
+                              }, 1500);
                         },
                         afterResize: function(width, height) {
-
+                              $("#opacity").opacity = width/1000;
                         },
                         afterResponsive: function(isResponsive) {
 
@@ -433,6 +426,7 @@
 
                         },
                         onSlideLeave: function(section, origin, destination, direction) {
+
                         }
                   });
                   fullPageJS.setAllowScrolling(true);
