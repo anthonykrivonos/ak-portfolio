@@ -236,17 +236,28 @@ button:hover, a:hover, .chip:hover {
 
 /* Custom Experience Group */
 .experience-group {
-      padding: 8px 32px 8px 32px;
+      width: 100%;
+      padding: 1vw;
 }
 .experience-title {
       width: 70%;
+      height: 4vh;
       float: left;
+      text-align: left;
       font-weight: bold;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
 }
 .experience-year {
       width: 30%;
+      height: 4vh;
       float: right;
       text-align: right;
+      font-weight: bold;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
 }
 .experience-position {
       width: 100%;
@@ -338,17 +349,17 @@ button:hover, a:hover, .chip:hover {
       padding: 2vw !important;
 }
 .brag-cards .card {
+      width: 100%;
       border: none;
       cursor: hand;
       cursor: pointer;
       transition: var(--transition-standard);
       -webkit-transition: var(--transition-standard);
-      box-shadow: var(--shadow-raised);
+      box-shadow: var(--shadow-flat);
 }
 .brag-cards .card:hover {
-      border-radius: 0px;
       border: none;
-      box-shadow: var(--shadow-flat);
+      box-shadow: var(--shadow-raised);
 }
 
 .chart {
@@ -396,13 +407,13 @@ button:hover, a:hover, .chip:hover {
 
 /* Font Sizes */
 .font-size-lg {
-      font-size: 6vh;
-}
-.font-size-md {
       font-size: 4vh;
 }
+.font-size-md {
+      font-size: 3.5vh;
+}
 .font-size-sm {
-      font-size: 3.25vh;
+      font-size: 3vh;
 }
 .font-size-xs {
       font-size: 2.5vh;
