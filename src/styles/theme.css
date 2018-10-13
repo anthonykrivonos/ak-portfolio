@@ -23,7 +23,7 @@
 
       /* Box Shadows */
       --shadow-none:    0 0 0 rgba(0,0,0,0), 0 0 0 rgba(0,0,0,0);
-      --shadow-flat:    0 0 1px 3px rgba(0,0,0,0.12), 0 0 1px 3px rgba(0,0,0,0.12);
+      --shadow-flat:    0 0 4px 1px rgba(0,0,0,0.04), 0 0 4px 1px rgba(0,0,0,0.04);
       --shadow-raised:  0 0 15px 1px rgba(0,0,0,0.12), 0 0 15px 1px rgba(0,0,0,0.12);
       --shadow-lifted:  0 0 30px 1px rgba(0,0,0,0.12), 0 0 30px 1px rgba(0,0,0,0.12);
 }
@@ -338,9 +338,42 @@ button:hover, a:hover, .chip:hover {
       padding: 2vw !important;
 }
 .brag-cards .card {
+      border: none;
+      cursor: hand;
+      cursor: pointer;
+      transition: var(--transition-standard);
+      -webkit-transition: var(--transition-standard);
+      box-shadow: var(--shadow-raised);
+}
+.brag-cards .card:hover {
       border-radius: 0px;
       border: none;
-      box-shadow: var(--shadow-lifted);
+      box-shadow: var(--shadow-flat);
+}
+
+.chart {
+      height: 70vh;
+      width: 70vh;
+      position: relative;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+      transition: var(--transition-standard);
+      -webkit-transition: var(--transition-standard);
+      cursor: hand;
+      cursor: pointer;
+      filter: grayscale(60%);
+}
+.chart:hover {
+      -webkit-transform: translateY(-50%) scale(0.9);
+      transform: translateY(-50%) scale(0.9);
+      filter: grayscale(0%);
+}
+.table-like {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
 }
 
 /* Horizontal Scroll Collection */
@@ -397,7 +430,7 @@ button:hover, a:hover, .chip:hover {
 #avatar.grow {
       width: 90vh;
       height: 90vh;
-      right: -20vw;
+      right: -10vw;
 }
 
 /* Responsive Styling */
@@ -415,17 +448,24 @@ button:hover, a:hover, .chip:hover {
       .chip:hover {
             box-shadow: var(--shadow-flat);
       }
+      #avatar.grow {
+            right: -55vh;
+      }
 
 }
 
 /* Custom, iPhone Retina */
 @media only screen and (min-width : 321px) {
-
+      #avatar.grow {
+            right: -30vw;
+      }
 }
 
 /* Extra Small Devices, Phones */
 @media only screen and (min-width : 481px) {
-
+      #avatar.grow {
+            right: -20vw;
+      }
 }
 
 /* Small Devices, Tablets */
@@ -435,6 +475,7 @@ button:hover, a:hover, .chip:hover {
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 993px) {
+
       /* Custom Tag Chips */
       .chip {
             box-shadow: var(--shadow-raised);

@@ -39,8 +39,12 @@
                   }
             </style>
 
+            <!-- Chart.js -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+
             <!-- Local Scripts -->
             <script src="scripts/main.js" type="text/javascript"></script>
+            <script src="scripts/models.js" type="text/javascript"></script>
             <script src="scripts/extensions.js" type="text/javascript"></script>
 
             <!-- TODO: ADD https://textillate.js.org/ -->
@@ -93,7 +97,7 @@
                                                       Hi, I'm <span class="font-weight-bold">Anthony</span>!
                                                 </div>
                                                 <div id="aboutText" class="font-size-md">
-                                                      I’m <span id="bragEl" class="typewriter">a developer</span> from NYC who loves all things tech, from mobile development to AR to UX to everything in between.
+                                                      I’m <span id="bragEl" class="typewriter">a developer</span> from NYC who loves both developing complex software systems and designing beautiful interfaces.
                                                 </div>
                                           </div>
                                     </div>
@@ -101,27 +105,13 @@
                               </div>
                         </div>
                   </div>
-                  <div class="section">
-                        <div id="skillsTitle" class="font-size-md text-center padded-md-top"><span class="typewriter">I'm decent at...</span></div>
-                        <div class="container">
-                              <div class="row brag-cards">
-                                    <div class="col col-md-4 col-12">
-                                          <div class="card">
-                                                test
-                                          </div>
-                                    </div>
-                                    <div class="col col-md-4 col-12">
-                                          <div class="card">
-                                                test
-                                          </div>
-                                    </div>
-                                    <div class="col col-md-4 col-12">
-                                          <div class="card">
-                                                test
-                                          </div>
-                                    </div>
-                              </div>
-                        </div>
+                  <div class="section table-like">
+                        <section class="chart">
+                              <div id="skillsTitle" class="font-size-xs text-center margin-md-bottom">My Skills (by Project Count)</div>
+                              <canvas id="skillsChart"></canvas>
+                        </section>
+
+
                   </div>
                   <div class="section">
                         <div class="container">
@@ -134,30 +124,44 @@
                                           </div>
                                     </div>
                                     <div class="col col-xs-12 col-md-10 col-lg-8">
-                                          <div class="experience-group">
-                                                <span class="experience-title font-size-sm">NBCUniversal Media, LLC</span>
-                                                <span class="experience-year font-size-sm">2017 - Present </span>
-                                                <span class="experience-position font-size-sm">Software Developer, Project Lead</span>
-                                          </div>
-                                          <div class="experience-group">
-                                                <span class="experience-title font-size-sm">n-Tier fs</span>
-                                                <span class="experience-year font-size-sm">2017</span>
-                                                <span class="experience-position font-size-sm">Full Stack Developer</span>
-                                          </div>
-                                          <div class="experience-group">
-                                                <span class="experience-title font-size-sm">Consolidated Edison Company of New York</span>
-                                                <span class="experience-year font-size-sm">2015 - 2017</span>
-                                                <span class="experience-position font-size-sm">Engineer's Aide in Electric Operations</span>
-                                          </div>
-                                          <div class="experience-group">
-                                                <span class="experience-title font-size-sm">Olof Palme Peace Foundation International</span>
-                                                <span class="experience-year font-size-sm">2015 - 2016</span>
-                                                <span class="experience-position font-size-sm">Informational Website Developer</span>
-                                          </div>
-                                          <div class="experience-group">
-                                                <span class="experience-title font-size-sm">Brewery Recording Studio</span>
-                                                <span class="experience-year font-size-sm">2013 - 2016</span>
-                                                <span class="experience-position font-size-sm">Engineering Intern</span>
+                                          <div class="container">
+                                                <div class="row brag-cards">
+                                                      <div class="card">
+                                                            <div class="experience-group">
+                                                                  <span class="experience-title font-size-sm">NBCUniversal Media, LLC</span>
+                                                                  <span class="experience-year font-size-sm">2017 - Present </span>
+                                                                  <span class="experience-position font-size-sm">Software Developer, Project Lead</span>
+                                                            </div>
+                                                      </div>
+                                                      <div class="card">
+                                                            <div class="experience-group">
+                                                                  <span class="experience-title font-size-sm">n-Tier fs</span>
+                                                                  <span class="experience-year font-size-sm">2017</span>
+                                                                  <span class="experience-position font-size-sm">Full Stack Developer</span>
+                                                            </div>
+                                                      </div>
+                                                      <div class="card">
+                                                            <div class="experience-group">
+                                                                  <span class="experience-title font-size-sm">Consolidated Edison Company of New York</span>
+                                                                  <span class="experience-year font-size-sm">2015 - 2017</span>
+                                                                  <span class="experience-position font-size-sm">Engineer's Aide in Electric Operations</span>
+                                                            </div>
+                                                      </div>
+                                                      <div class="card">
+                                                            <div class="experience-group">
+                                                                  <span class="experience-title font-size-sm">Olof Palme Peace Foundation International</span>
+                                                                  <span class="experience-year font-size-sm">2015 - 2016</span>
+                                                                  <span class="experience-position font-size-sm">Informational Website Developer</span>
+                                                            </div>
+                                                      </div>
+                                                      <div class="card">
+                                                            <div class="experience-group">
+                                                                  <span class="experience-title font-size-sm">Brewery Recording Studio</span>
+                                                                  <span class="experience-year font-size-sm">2013 - 2016</span>
+                                                                  <span class="experience-position font-size-sm">Engineering Intern</span>
+                                                            </div>
+                                                      </div>
+                                                </div>
                                           </div>
                                     </div>
                               </div>
@@ -382,7 +386,14 @@
                                                 $("#avatar").animate("fadeInRight delay-2s");
                                                 break;
                                           case 1:
+                                                // Section 1 Animations
                                                 $("#skillsTitle").animate("fadeInDownBig");
+                                                graphizeSkills([
+                                                      new Skill('Python', ['Hi', 'Bye']),
+                                                      new Skill('C++', ['Hi', 'Bye']),
+                                                      new Skill('Java', ['Hi']),
+                                                      new Skill('Swift', ['Hi', 'Hi', 'Hi'])
+                                                ])
                                                 break;
                                           default:
                                                 break;

@@ -1,7 +1,7 @@
 /*
-Anthony Krivonos
-src/scripts/main.js
-09.17.2018
+      Anthony Krivonos
+      src/scripts/main.js
+      09.17.2018
 */
 
 
@@ -58,7 +58,6 @@ let brag = (typewriterElement, onInterval, waitTime) => {
 };
 
 let randomizeHue = (onElement, onInterval = null) => {
-      console.log("randomizing")
       let setHue = (to) => {
             onElement.css("-webkit-filter", `hue-rotate(${to}deg)`);
             onElement.css("filter", `hue-rotate(${to}deg)`);
@@ -72,4 +71,47 @@ let randomizeHue = (onElement, onInterval = null) => {
             setHue(getRandomDegree());
             return null;
       }
+};
+// Generates a color from a given string value
+let colorFromString = (str) => {
+      var hash = 0;
+      for (var i = 0; i < str.length; i++) {
+            hash = str.charCodeAt(i) + ((hash << 5) - hash);
+      }
+      var colour = '#';
+      for (var i = 0; i < 3; i++) {
+            var value = (hash >> (i * 8)) & 0xFF;
+            colour += ('00' + value.toString(16)).substr(-2);
+      }
+      return colour;
+}
+
+let graphizeSkills = (skills) => {
+      console.log("graphizing")
+      var ctx = document.getElementById('skillsChart').getContext('2d');
+      ctx.canvas.width = '100px';
+      ctx.canvas.height = '100px';
+      var data = {
+            datasets: [{
+                  data: [],
+                  backgroundColor: []
+            }],
+            labels: []
+      };
+      skills.sort((a, b) => a.name > b.name);
+      skills.forEach((skill) => {
+            data.datasets[0].data.push(skill.projects.length);
+            data.datasets[0].backgroundColor.push(colorFromString(skill.name));
+            data.labels.push(skill.name);
+      });
+      var options = {
+            cutoutPercentage: 50,
+            responsiveAnimationDuration: 500,
+            responsive: true
+      };
+      new Chart(ctx, {
+            data: data,
+            type: 'polarArea',
+            options: options
+      });
 };
