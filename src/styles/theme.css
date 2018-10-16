@@ -8,8 +8,8 @@
 
       /* Standard Spacing */
       --spacing-increment: 8;
-      --gutter-width: var(--spacing-increment)px;
-      --half-gutter-width: calc((var(--gutter-width) * 0.5));
+      --gutter-width: calc(var(--spacing-increment) * 1px);
+      --half-gutter-width: calc((var(--spacing-increment) * 0.5px));
       --outer-margin: calc(var(--spacing-increment) * 2)px;
       --gutter-compensation: calc((var(--gutter-width) * 0.5) * -1);
       --container-sm: calc(var(--sm-min) + var(--gutter-width));
@@ -199,7 +199,6 @@ body {
 /* Responsive Clickable Elements */
 button, a, .chip {
       transition: var(--transition-standard);
-      display: flex;
 }
 button:hover, a:hover, .chip:hover {
       -ms-transform: scale(0.95);
@@ -239,6 +238,22 @@ button:hover, a:hover, .chip:hover {
       width: 100%;
       padding: 1vw;
 }
+.experience-group .experience-image {
+      opacity: 0;
+      width: 100%;
+      height: 0vh;
+      border-radius: var(--half-gutter-width) !important;
+      background-position: bottom !important;
+      background-clip: border-box !important;
+      background-repeat: no-repeat !important;
+      background-size: cover;
+      transition: var(--transition-standard);
+      -webkit-transition: var(--transition-standard);
+}
+.experience-group:hover .experience-image {
+      opacity: 1;
+      height: 14vh;
+}
 .experience-title {
       width: 70%;
       height: 4vh;
@@ -254,7 +269,6 @@ button:hover, a:hover, .chip:hover {
       height: 4vh;
       float: right;
       text-align: right;
-      font-weight: bold;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -265,6 +279,18 @@ button:hover, a:hover, .chip:hover {
 }
 
 /* Custom Carousel Elements */
+.carousel-row {
+      padding-top: 2vh;
+      padding-bottom: 2vh;
+}
+.carousel-tile {
+      border-radius: var(--half-gutter-width) !important;
+      box-shadow: var(--shadow-flat);
+      display: inline-block !important;
+}
+.carousel-tile:hover {
+      box-shadow: var(--shadow-raised);
+}
 .carousel-image {
       width: 100%;
       height: 100%;
@@ -274,9 +300,13 @@ button:hover, a:hover, .chip:hover {
       transition: 0.5s;
       filter: grayscale(100%);
       opacity: 0.4;
+      border-radius: var(--half-gutter-width);
 }
 .carousel-tile:hover .carousel-image {
-      height: 60%;
+      border-radius: 0;
+      border-top-left-radius: var(--half-gutter-width);
+      border-top-right-radius: var(--half-gutter-width);
+      height: calc(100% - 10vh);
       filter: grayscale(0%);
       opacity: 1;
 }
@@ -288,14 +318,22 @@ button:hover, a:hover, .chip:hover {
       transition: 0.5s;
 }
 .carousel-tile:hover .carousel-text {
-      height: auto;
-      padding: 8px;
+      height: 10vh;
+      padding: var(--gutter-width);
       opacity: 1;
 }
 .carousel-title {
       width: 70%;
       float: left;
       font-weight: bold;
+}
+.carousel-title .chip {
+      width: auto !important;
+      display: inline !important;
+      border: solid 1pt black;
+      font-weight: 400;
+      font-size: 1.5vh;
+      vertical-align: middle;
 }
 .carousel-subtitle {
       width: 30%;
@@ -320,9 +358,6 @@ button:hover, a:hover, .chip:hover {
       opacity: 0.8;
       font-size: 8pt;
       text-transform: uppercase;
-}
-.carousel-row .carousel-tile {
-      box-shadow: var(--shadow-flat);
 }
 
 /* Interactables Section Button */
@@ -350,9 +385,8 @@ button:hover, a:hover, .chip:hover {
 }
 .brag-cards .card {
       width: 100%;
+      border-radius: var(--half-gutter-width) !important;
       border: none;
-      cursor: hand;
-      cursor: pointer;
       transition: var(--transition-standard);
       -webkit-transition: var(--transition-standard);
       box-shadow: var(--shadow-flat);
@@ -448,17 +482,6 @@ button:hover, a:hover, .chip:hover {
 
 /* Custom, iPhone Retina */
 @media only screen and (min-width : 0px) {
-      /* Custom Tag Chips */
-      .chip {
-            box-shadow: var(--shadow-raised);
-            border: solid 1px black;
-            border-radius: 4px;
-            padding: 4px 8px 4px 8px;
-            margin: 5px;
-      }
-      .chip:hover {
-            box-shadow: var(--shadow-flat);
-      }
       #avatar.grow {
             right: -55vh;
       }
@@ -486,18 +509,6 @@ button:hover, a:hover, .chip:hover {
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 993px) {
-
-      /* Custom Tag Chips */
-      .chip {
-            box-shadow: var(--shadow-raised);
-            border: solid 2px black;
-            border-radius: 8px;
-            padding: 4px 8px 4px 8px;
-            margin: 5px;
-      }
-      .chip:hover {
-            box-shadow: var(--shadow-flat);
-      }
 }
 
 /* Large Devices, Wide Screens */
