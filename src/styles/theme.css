@@ -240,11 +240,14 @@ button:hover, a:hover, .chip:hover {
 }
 .experience-group .experience-image {
       opacity: 0;
-      width: 100%;
-      height: 0vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 100% !important;
       border-radius: var(--half-gutter-width) !important;
-      background-position: bottom !important;
-      background-clip: border-box !important;
+      background-position: center !important;
+      background-clip: padding-box !important;
       background-repeat: no-repeat !important;
       background-size: cover;
       transition: var(--transition-standard);
@@ -252,7 +255,16 @@ button:hover, a:hover, .chip:hover {
 }
 .experience-group:hover .experience-image {
       opacity: 1;
-      height: 14vh;
+      width: 15%;
+}
+.experience-group:hover .experience-text {
+      width: 85%;
+}
+.experience-text {
+      width: 100%;
+      float: right;
+      transition: var(--transition-standard);
+      -webkit-transition: var(--transition-standard);
 }
 .experience-title {
       width: 70%;
@@ -315,7 +327,8 @@ button:hover, a:hover, .chip:hover {
       height: 0;
       padding: 0;
       opacity: 0;
-      transition: 0.5s;
+      transition: var(--transition-standard);
+      -webkit-transition: var(--transition-standard);
 }
 .carousel-tile:hover .carousel-text {
       height: 10vh;
@@ -323,17 +336,22 @@ button:hover, a:hover, .chip:hover {
       opacity: 1;
 }
 .carousel-title {
-      width: 70%;
+      width: 100%;
       float: left;
-      font-weight: bold;
+      font-weight: 500;
+      overflow-x: auto;
 }
 .carousel-title .chip {
       width: auto !important;
       display: inline !important;
-      border: solid 1pt black;
+      background: lightgray;
+      border-radius: 4px;
       font-weight: 400;
       font-size: 1.5vh;
+      padding-left: 4px;
+      padding-right: 4px;
       vertical-align: middle;
+      font-weight: 200;
 }
 .carousel-subtitle {
       width: 30%;
@@ -345,19 +363,16 @@ button:hover, a:hover, .chip:hover {
       width: 100%;
       float: left;
       display: block;
+      font-size: 1.75vh;
 }
 .carousel-footer {
       width: 100%;
       float: left;
       display: block;
       text-align: center;
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 4px;
-      opacity: 0.8;
+      margin-top: 4px;
       font-size: 8pt;
-      text-transform: uppercase;
+      color: gray;
 }
 
 /* Interactables Section Button */

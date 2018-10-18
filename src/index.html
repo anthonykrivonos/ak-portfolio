@@ -59,22 +59,22 @@
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                   </button>
-                  <div class="collapse navbar-collapse" id="navbarText">
-                        <ul class="navbar-nav ml-auto">
-                              <li class="nav-item active">
-                                    <a class="nav-link" href="#">About<span class="sr-only">(current)</span></a>
+                  <div class="collapse navbar-collapse">
+                        <ul class="navbar-nav ml-auto" id="menu">
+                              <li class="nav-item active" data-menuanchor="About">
+                                    <a href="#About" class="nav-link">About</a>
                               </li>
-                              <li class="nav-item">
-                                    <a class="nav-link" href="#">Skills</a>
+                              <li class="nav-item" data-menuanchor="Skills">
+                                    <a href="#Skills" class="nav-link" href="#">Skills</a>
                               </li>
-                              <li class="nav-item">
-                                    <a class="nav-link" href="#">Experience</a>
+                              <li class="nav-item" data-menuanchor="Experience">
+                                    <a href="#Experience" class="nav-link" href="#">Experience</a>
                               </li>
-                              <li class="nav-item">
-                                    <a class="nav-link" href="#">Projects</a>
+                              <li class="nav-item" data-menuanchor="Projects">
+                                    <a href="#Projects" class="nav-link" href="#">Projects</a>
                               </li>
-                              <li class="nav-item">
-                                    <a class="nav-link" href="#">Contact</a>
+                              <li class="nav-item" data-menuanchor="Contact">
+                                    <a href="#Contact" class="nav-link" href="#">Contact</a>
                               </li>
                         </ul>
                   </div>
@@ -82,30 +82,6 @@
 
             <!-- Full Page Content -->
             <div id="fullpage">
-            <div class="section">
-                  <div class="container">
-                        <div class="row">
-                              <div class="col col-xs-12">
-                                    <div class="carousel">
-                                          <div class="carousel-row">
-                                                <div class="carousel-tile">
-                                                      <div class="carousel-image" style="background: url('https://firebasestorage.googleapis.com/v0/b/anthony-krivonos-website.appspot.com/o/projects%2Finstastore_isometric.jpg?alt=media&token=9af7bdb6-1ff8-45bb-a06e-4475e9d09a30')"></div>
-                                                      <div class="carousel-text">
-                                                            <div class="carousel-title">
-                                                                  Instastore
-                                                                  <div class="chip">Instastore</div>
-                                                            </div>
-                                                            <div class="carousel-subtitle">2017</div>
-                                                            <div class="carousel-body">Did something pretty cool.</div>
-                                                            <div class="carousel-footer" onclick="window.open('http://www.google.com/')">Tap Here to Learn More</div>
-                                                      </div>
-                                                </div>
-                                          </div>
-                                    </div>
-                              </div>
-                        </div>
-                  </div>
-            </div>
                   <div class="section">
                         <div class="container">
                               <div class="row">
@@ -138,41 +114,11 @@
                                                       <div class="card margin-md-bottom">
                                                             <div class="experience-group">
                                                                   <div style="background:url('https://www.brandchannel.com/wp-content/uploads/2011/01/nbc-universal.jpg')" class="experience-image"></div>
-                                                                  <span class="experience-title font-size-sm">NBCUniversal Media, LLC</span>
-                                                                  <span class="experience-year font-size-xs">2017 - Present </span>
-                                                                  <span class="experience-position font-size-xs">Software Developer, Project Lead</span>
-                                                            </div>
-                                                      </div>
-                                                      <div class="card margin-md-bottom">
-                                                            <div class="experience-group">
-                                                                  <div style="background:url('https://www.brandchannel.com/wp-content/uploads/2011/01/nbc-universal.jpg')" class="experience-image"></div>
-                                                                  <span class="experience-title font-size-sm">n-Tier fs</span>
-                                                                  <span class="experience-year font-size-xs">2017</span>
-                                                                  <span class="experience-position font-size-xs">Full Stack Developer</span>
-                                                            </div>
-                                                      </div>
-                                                      <div class="card margin-md-bottom">
-                                                            <div class="experience-group">
-                                                                  <div style="background:url('https://www.brandchannel.com/wp-content/uploads/2011/01/nbc-universal.jpg')" class="experience-image"></div>
-                                                                  <span class="experience-title font-size-sm">Consolidated Edison Company of New York</span>
-                                                                  <span class="experience-year font-size-xs">2015 - 2017</span>
-                                                                  <span class="experience-position font-size-xs">Engineer's Aide in Electric Operations</span>
-                                                            </div>
-                                                      </div>
-                                                      <div class="card margin-md-bottom">
-                                                            <div class="experience-group">
-                                                                  <div style="background:url('https://www.brandchannel.com/wp-content/uploads/2011/01/nbc-universal.jpg')" class="experience-image"></div>
-                                                                  <span class="experience-title font-size-sm">Olof Palme Peace Foundation International</span>
-                                                                  <span class="experience-year font-size-xs">2015 - 2016</span>
-                                                                  <span class="experience-position font-size-xs">Informational Website Developer</span>
-                                                            </div>
-                                                      </div>
-                                                      <div class="card margin-md-bottom">
-                                                            <div class="experience-group">
-                                                                  <div style="background:url('https://www.brandchannel.com/wp-content/uploads/2011/01/nbc-universal.jpg')" class="experience-image"></div>
-                                                                  <span class="experience-title font-size-sm">Brewery Recording Studio</span>
-                                                                  <span class="experience-year font-size-xs">2013 - 2016</span>
-                                                                  <span class="experience-position font-size-xs">Engineering Intern</span>
+                                                                  <div class="experience-text">
+                                                                        <span class="experience-title font-size-sm">NBCUniversal Media, LLC</span>
+                                                                        <span class="experience-year font-size-xs">2017 - Present </span>
+                                                                        <span class="experience-position font-size-xs">Software Developer, Project Lead</span>
+                                                                  </div>
                                                             </div>
                                                       </div>
                                                 </div>
@@ -181,6 +127,31 @@
                               </div>
                         </div>
                   </div>
+                  <div class="section">
+                              <div class="container">
+                                    <div class="row">
+                                          <div class="col col-xs-12">
+                                                <div class="carousel">
+                                                      <div class="carousel-row">
+                                                            <div class="carousel-tile">
+                                                                  <div class="carousel-image" style="background: url('https://firebasestorage.googleapis.com/v0/b/anthony-krivonos-website.appspot.com/o/projects%2Finstastore_isometric.jpg?alt=media&token=9af7bdb6-1ff8-45bb-a06e-4475e9d09a30')"></div>
+                                                                  <div class="carousel-text">
+                                                                        <div class="carousel-title">
+                                                                              Instastore
+                                                                              <div class="chip">Node.js</div>
+                                                                              <div class="chip">Express</div>
+                                                                        </div>
+                                                                        <div class="carousel-body">Did something pretty cool.</div>
+                                                                        <!-- <div class="carousel-subtitle">2017</div> -->
+                                                                        <div class="carousel-footer" onclick="window.open('http://www.google.com/')">Tap Here to Learn More</div>
+                                                                  </div>
+                                                            </div>
+                                                      </div>
+                                                </div>
+                                          </div>
+                                    </div>
+                              </div>
+                        </div>
                   <div class="section">
                         <div class="container">
                               <div class="row">
@@ -210,7 +181,6 @@
                   var fullPageJS = new fullpage('#fullpage', {
                         //Navigation
                         menu: '#menu',
-                        lockAnchors: true,
                         anchors: [ 'About', 'Skills', 'Experience', 'Projects', 'Contact' ],
                         showActiveTooltip: false,
                         slidesNavigation: false,
