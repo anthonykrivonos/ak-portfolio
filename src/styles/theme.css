@@ -288,6 +288,9 @@ button:hover, a:hover, .chip:hover {
 .experience-position {
       width: 100%;
       font-style: italic;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
 }
 
 /* Custom Carousel Elements */
@@ -399,7 +402,8 @@ button:hover, a:hover, .chip:hover {
       padding: 2vw !important;
 }
 .brag-cards .card {
-      width: 100%;
+      width: 80%;
+      margin-left: 10%;
       border-radius: var(--half-gutter-width) !important;
       border: none;
       transition: var(--transition-standard);
@@ -409,11 +413,12 @@ button:hover, a:hover, .chip:hover {
 .brag-cards .card:hover {
       border: none;
       box-shadow: var(--shadow-raised);
+      transform: scale(1.1);
 }
 
 .chart {
-      height: 70vh;
-      width: 70vh;
+      height: 60vh;
+      width: 60vh;
       position: relative;
       top: 50%;
       -webkit-transform: translateY(-50%);
@@ -443,8 +448,8 @@ button:hover, a:hover, .chip:hover {
 }
 .console {
       height: 75vh;
-      margin-left: 20%;
-      width: 60%;
+      margin-left: 12.5%;
+      width: 75%;
       background: #1E2028;
       font-family: monospace;
       color: white;
@@ -481,7 +486,7 @@ button:hover, a:hover, .chip:hover {
       background: none;
 }
 .console .mark:before {
-      content: '/* MARK: - ';
+      content: '/* SECTION: - ';
 }
 .console .mark:after {
       content: ' */';
@@ -500,6 +505,8 @@ button:hover, a:hover, .chip:hover {
       margin: 0;
       padding: 0;
       outline: none;
+      text-decoration: underline;
+      text-decoration-color: gray;
 }
 .console .function:before {
       content: 'AK.';
@@ -553,6 +560,31 @@ button:hover, a:hover, .chip:hover {
       height: 30px;
       margin-top: -5px;
 }
+.navbar {
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      right: 0;
+}
+.nav-item {
+      text-align: center;
+}
+
+/* Hamburger */
+.hamburger {
+      padding: 0px !important;
+      outline: none !important;
+}
+.hamburger-box {
+      width: 30px;
+      height: 30px
+}
+.hamburger-inner, .hamburger-inner:before, .hamburger-inner:after {
+      width: 30px !important;
+      padding: 0 !important;
+      margin: 0 !important;
+}
 
 /* Section 0 Items */
 #hiText {
@@ -570,33 +602,27 @@ button:hover, a:hover, .chip:hover {
       -webkit-transition: var(--transition-standard);
 }
 #avatar.grow {
-      width: 90vh;
-      height: 90vh;
-      right: -10vw;
+      width: 100vw;
+      height: 100vw;
+      max-width: 600px;
+      max-height: 600px;
 }
 
 /* Responsive Styling */
 
 /* Custom, iPhone Retina */
 @media only screen and (min-width : 0px) {
-      #avatar.grow {
-            right: -55vh;
-      }
 
 }
 
 /* Custom, iPhone Retina */
 @media only screen and (min-width : 321px) {
-      #avatar.grow {
-            right: -30vw;
-      }
+
 }
 
 /* Extra Small Devices, Phones */
 @media only screen and (min-width : 481px) {
-      #avatar.grow {
-            right: -20vw;
-      }
+
 }
 
 /* Small Devices, Tablets */

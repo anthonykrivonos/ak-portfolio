@@ -31,10 +31,13 @@
             <link href="styles/carousel.css" rel="stylesheet">
             <link href="styles/typewriter.css" rel="stylesheet">
 
+            <!-- Hamburgers -->
+            <link href="styles/hamburgers.css" rel="stylesheet">
+
             <!-- Carousel Restyling -->
             <style>
                   :root {
-                        --carousel-tile-height: 40vh;
+                        --carousel-tile-height: 32vh;
                         --carousel-tile-width:  calc(var(--carousel-tile-height) / (4 / 5));
                   }
             </style>
@@ -53,28 +56,32 @@
             <!-- Navigational Bar -->
             <nav class="navbar navbar-expand-lg navbar-light unselectable">
                   <a class="navbar-brand" rel="home" href="" title="Anthony Krivonos">
-                    <img class="navbar-logo" src="images/icons/logo.png">
+                        <img class="navbar-logo" src="images/icons/logo.png">
                   </a>
                   <a class="navbar-brand" href="">Anthony Krivonos</a>
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+                  <button class="navbar-toggler hamburger" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle Nav Bar">
+                        <div class="hamburger hamburger--minus">
+                              <div class="hamburger-box">
+                                    <div class="hamburger-inner"></div>
+                              </div>
+                        </div>
                   </button>
                   <div class="collapse navbar-collapse">
                         <ul class="navbar-nav ml-auto" id="menu">
-                              <li class="nav-item active" data-menuanchor="About">
-                                    <a href="#About" class="nav-link">About</a>
+                              <li class="nav-item" data-menuanchor="About">
+                                    <a href="#About" class="nav-link">🌟 About</a>
                               </li>
                               <li class="nav-item" data-menuanchor="Skills">
-                                    <a href="#Skills" class="nav-link" href="#">Skills</a>
+                                    <a href="#Skills" class="nav-link" href="#">🏅 Skills</a>
                               </li>
                               <li class="nav-item" data-menuanchor="Experience">
-                                    <a href="#Experience" class="nav-link" href="#">Experience</a>
+                                    <a href="#Experience" class="nav-link" href="#">📈 Experience</a>
                               </li>
                               <li class="nav-item" data-menuanchor="Projects">
-                                    <a href="#Projects" class="nav-link" href="#">Projects</a>
+                                    <a href="#Projects" class="nav-link" href="#">📱 Projects</a>
                               </li>
                               <li class="nav-item" data-menuanchor="Contact">
-                                    <a href="#Contact" class="nav-link" href="#">Contact</a>
+                                    <a href="#Contact" class="nav-link" href="#">📬 Contact</a>
                               </li>
                         </ul>
                   </div>
@@ -88,7 +95,7 @@
                                     <div class="col col-lg-8 col-md-8 col-sm-12 unselectable">
                                           <div class="align-self-center unselectable padded-lg">
                                                 <div id="hiText" class="font-size-md">
-                                                      Hi, I'm <span class="font-weight-bold">Anthony</span>!
+                                                      🙌🏻 Hi! I'm <span class="font-weight-bold">Anthony</span>!
                                                 </div>
                                                 <div id="aboutText" class="font-size-md">
                                                       I’m <span id="bragEl" class="typewriter">a developer</span> from NYC who loves both developing complex software systems and designing beautiful interfaces.
@@ -101,26 +108,20 @@
                   </div>
                   <div class="section table-like">
                         <section class="chart">
-                              <div id="skillsTitle" class="font-size-xs text-center margin-md-bottom">Skills (by Project Count)</div>
+                              <div id="skillsTitle" class="font-size-xs text-center margin-md-bottom">🏅 <b>Skills</b> by # of Projects</div>
                               <canvas id="skillsChart"></canvas>
                         </section>
                   </div>
                   <div class="section">
                         <div class="container">
-                              <div class="row">
-                                    <div class="col col-xs-12">
-                                          <div class="container">
-                                                <div class="row brag-cards">
-                                                      <div class="card margin-md-bottom">
-                                                            <div class="experience-group">
-                                                                  <div style="background:url('https://www.brandchannel.com/wp-content/uploads/2011/01/nbc-universal.jpg')" class="experience-image"></div>
-                                                                  <div class="experience-text">
-                                                                        <span class="experience-title font-size-sm">NBCUniversal Media, LLC</span>
-                                                                        <span class="experience-year font-size-xs">2017 - Present </span>
-                                                                        <span class="experience-position font-size-xs">Software Developer, Project Lead</span>
-                                                                  </div>
-                                                            </div>
-                                                      </div>
+                              <div class="row brag-cards">
+                                    <div class="card margin-md-bottom">
+                                          <div class="experience-group">
+                                                <a href="" style="background:url('http://www.nbcuniversal.com/sites/all/themes/nbcuni/images/logo_share.jpg')" class="experience-image"></a>
+                                                <div class="experience-text">
+                                                      <span class="experience-title font-size-sm">NBCUniversal Media, LLC</span>
+                                                      <span class="experience-year font-size-xs">2017 - Present </span>
+                                                      <span class="experience-position font-size-xs">Software Developer, Project Lead</span>
                                                 </div>
                                           </div>
                                     </div>
@@ -143,7 +144,7 @@
                                                                         </div>
                                                                         <div class="carousel-body">Did something pretty cool.</div>
                                                                         <!-- <div class="carousel-subtitle">2017</div> -->
-                                                                        <div class="carousel-footer" onclick="window.open('http://www.google.com/')">Tap Here to Learn More</div>
+                                                                        <div class="carousel-footer" onclick="window.open('http://www.google.com/')">👋🏻 Learn More</div>
                                                                   </div>
                                                             </div>
                                                       </div>
@@ -159,30 +160,31 @@
                                           <div class="console">
                                                 <div class="bar"></div>
                                                 <ol>
-                                                      <li><span class="mark">Email Section</span></li>
+                                                      <li><span class="mark">Email</span></li>
                                                       <li><!-- Empty Line --></li>
-                                                      <li><div class="comment">from</li></li>
-                                                      <li><div class="prompt"><input type="text" name="from" placeholder="your name"></div></li>
+                                                      <li><div class="comment">👤 from</li></li>
+                                                      <li><div class="prompt"><input type="text" name="from" placeholder="your full name"></div></li>
                                                       <li><!-- Empty Line --></li>
-                                                      <li><div class="comment">email</li></li>
+                                                      <li><div class="comment">📩 email</li></li>
                                                       <li><div class="prompt"><input type="email" name="from" placeholder="your address"></div></li>
                                                       <li><!-- Empty Line --></li>
-                                                      <li><div class="comment">subject</li></li>
+                                                      <li><div class="comment">🏷 subject</li></li>
                                                       <li><div class="prompt"><input type="text" name="subject" placeholder="title"></div></li>
                                                       <li><!-- Empty Line --></li>
-                                                      <li><div class="comment">message</li></li>
+                                                      <li><div class="comment">📝 message</li></li>
                                                       <li><div class="prompt"><input type="text" name="body" placeholder="the meat goes here..."></div></li>
+                                                      <li><!-- Empty Line --></li>
                                                       <li><button class="function">sendMessage</button></li>
                                                       <li><!-- Empty Line --></li>
-                                                      <li><span class="mark">Other Contacts</span></li>
+                                                      <li><span class="mark">Other</span></li>
                                                       <li><!-- Empty Line --></li>
-                                                      <li><div class="comment">GitHub</li></li>
-                                                      <li><button class="function">openGitHub</button></li>
+                                                      <li><div class="comment">💻 GitHub</li></li>
+                                                      <li><button onclick="open(URL_CONSTANTS.GITHUB);" class="function">openGitHub</button></li>
                                                       <li><!-- Empty Line --></li>
-                                                      <li><div class="comment">LinkedIn</li></li>
+                                                      <li><div class="comment">💼 LinkedIn</li></li>
                                                       <li><button class="function">openLinkedIn</button></li>
                                                       <li><!-- Empty Line --></li>
-                                                      <li><div class="comment">StackOverflow</li></li>
+                                                      <li><div class="comment">📚 StackOverflow</li></li>
                                                       <li><button class="function">openStackOverflow</button></li>
                                                 </ol>
                                           </div>
@@ -201,6 +203,11 @@
                   var typewriterSpeed = 400;
                   var typewriterDelay = 2000;
                   var bragInterval = brag(document.getElementById('bragEl'), typewriterSpeed, typewriterDelay);
+
+                  // Hamburger
+                  $(".hamburger").click(() => {
+                        $(".hamburger").toggleClass("is-active", $(".hamburger").attr("aria-expanded") == "false");
+                  });
 
                   // Section 0 Animations
                   $("#hiText").animate("slideInLeft delay-2s");

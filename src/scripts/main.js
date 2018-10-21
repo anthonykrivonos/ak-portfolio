@@ -4,6 +4,12 @@
       09.17.2018
 */
 
+// Object with URL constants
+let URL_CONSTANTS = {
+      GITHUB: "http://github.com/anthonykrivonos",
+      LINKEDIN: "http://linkedin.com/in/anthonykrivonos",
+      STACKOVERFLOW: "https://stackoverflow.com/users/7432026/anthony-krivonos",
+};
 
 let typewriter = (typewriterElement, onInterval, word = null) => {
       if (!typewriterElement.className.split(' ').includes("typewriter")) {
@@ -87,10 +93,10 @@ let colorFromString = (str) => {
 }
 
 let graphizeSkills = (skills) => {
-      console.log("graphizing")
+      let SIZE = "100px";
       var ctx = document.getElementById('skillsChart').getContext('2d');
-      ctx.canvas.width = '100px';
-      ctx.canvas.height = '100px';
+      ctx.canvas.width = SIZE;
+      ctx.canvas.height = SIZE;
       var data = {
             datasets: [{
                   data: [],
@@ -114,4 +120,10 @@ let graphizeSkills = (skills) => {
             type: 'polarArea',
             options: options
       });
+};
+
+let open = (url) => {
+      let NEW_TAB = "_blank";
+      window.open(url, NEW_TAB);
+      window.focus();
 };
