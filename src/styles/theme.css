@@ -436,6 +436,88 @@ button:hover, a:hover, .chip:hover {
       justify-content: center;
 }
 
+/* Console */
+.console::before {
+      width: 100%;
+      height: 2vh;
+}
+.console {
+      height: 75vh;
+      margin-left: 20%;
+      width: 60%;
+      background: #1E2028;
+      font-family: monospace;
+      color: white;
+      transition: var(--transition-standard);
+      -webkit-transition: var(--transition-standard);
+      border-radius: var(--half-gutter-width) !important;
+      box-shadow: var(--shadow-flat);
+      overflow-y: auto;
+      overflow-x: hidden;
+}
+.console:hover {
+      box-shadow: var(--shadow-raised);
+      transform: scale(1.1);
+}
+.console .bar {
+      height: 2vh;
+      background: #FAFAFA;
+      border-top-left-radius: var(--half-gutter-width) !important;
+      border-top-right-radius: var(--half-gutter-width) !important;
+}
+.console ol {
+      margin: 0;
+      padding: 10px;
+      padding-left: 40px;
+}
+.console li {
+      margin-left: 0;
+}
+.console .comment {
+      color: #40B444;
+}
+.console .mark {
+      color: #DA2C38;
+      background: none;
+}
+.console .mark:before {
+      content: '/* MARK: - ';
+}
+.console .mark:after {
+      content: ' */';
+}
+.console .comment:before {
+      content: '// ';
+}
+.console .prompt:before {
+      content: '> ';
+      color: #00A0BE;
+}
+.console .function {
+      background: none;
+      color: #00A0BE;
+      border: none;
+      margin: 0;
+      padding: 0;
+      outline: none;
+}
+.console .function:before {
+      content: 'AK.';
+      color: white;
+}
+.console .function:after {
+      content: '();';
+      color: white;
+}
+.console input {
+      background: none;
+      border: none;
+      outline: none;
+      color: white;
+      float: right;
+      width: calc(100% - 10px) !important;
+}
+
 /* Horizontal Scroll Collection */
 .collection {
 

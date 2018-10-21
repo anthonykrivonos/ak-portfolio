@@ -39,7 +39,7 @@ let brag = (typewriterElement, onInterval, waitTime) => {
             "a problem solver",
             "an entrepreneur",
             "a tech enthusiast",
-            "an author",
+            "a LinkedIn author",
             "an engineer",
             "a designer",
             "a student",

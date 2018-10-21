@@ -153,10 +153,39 @@
                               </div>
                         </div>
                   <div class="section">
-                        <div class="container">
+                        <div class="container" id="console">
                               <div class="row">
-                                    <div class="col col-xs-12">
-
+                                    <div class="col">
+                                          <div class="console">
+                                                <div class="bar"></div>
+                                                <ol>
+                                                      <li><span class="mark">Email Section</span></li>
+                                                      <li><!-- Empty Line --></li>
+                                                      <li><div class="comment">from</li></li>
+                                                      <li><div class="prompt"><input type="text" name="from" placeholder="your name"></div></li>
+                                                      <li><!-- Empty Line --></li>
+                                                      <li><div class="comment">email</li></li>
+                                                      <li><div class="prompt"><input type="email" name="from" placeholder="your address"></div></li>
+                                                      <li><!-- Empty Line --></li>
+                                                      <li><div class="comment">subject</li></li>
+                                                      <li><div class="prompt"><input type="text" name="subject" placeholder="title"></div></li>
+                                                      <li><!-- Empty Line --></li>
+                                                      <li><div class="comment">message</li></li>
+                                                      <li><div class="prompt"><input type="text" name="body" placeholder="the meat goes here..."></div></li>
+                                                      <li><button class="function">sendMessage</button></li>
+                                                      <li><!-- Empty Line --></li>
+                                                      <li><span class="mark">Other Contacts</span></li>
+                                                      <li><!-- Empty Line --></li>
+                                                      <li><div class="comment">GitHub</li></li>
+                                                      <li><button class="function">openGitHub</button></li>
+                                                      <li><!-- Empty Line --></li>
+                                                      <li><div class="comment">LinkedIn</li></li>
+                                                      <li><button class="function">openLinkedIn</button></li>
+                                                      <li><!-- Empty Line --></li>
+                                                      <li><div class="comment">StackOverflow</li></li>
+                                                      <li><button class="function">openStackOverflow</button></li>
+                                                </ol>
+                                          </div>
                                     </div>
                               </div>
                         </div>
@@ -243,6 +272,8 @@
                                           case 1:
                                                 $("#skillsTitle").animate("fadeOutUpBig");
                                                 break;
+                                          case 2:
+                                                break;
                                           default:
                                                 break;
                                     }
@@ -263,10 +294,19 @@
                                                       new Skill('Java', ['Hi']),
                                                       new Skill('Swift', ['Hi', 'Hi', 'Hi'])
                                                 ])
+                                                $(".card:even").animate("fadeOutRight delay-3s");
+                                                $(".card:odd").animate("fadeOutLeft delay-3s");
                                                 break;
                                           case 2:
                                                 $(".card:even").animate("fadeInRight delay-3s");
                                                 $(".card:odd").animate("fadeInLeft delay-3s");
+                                                break;
+                                          case 3:
+                                                $(".card:even").animate("fadeOutLeft delay-3s");
+                                                $(".card:odd").animate("fadeOutRight delay-3s");
+                                                break;
+                                          case 3:
+                                                $("#console").animate("bounceInUp delay-3s");
                                                 break;
                                           default:
                                                 break;
