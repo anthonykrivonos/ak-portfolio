@@ -4,12 +4,18 @@
       09.17.2018
 */
 
-// Object with URL constants
+// URL Constants for Contacts
 let URL_CONSTANTS = {
-      GITHUB: "http://github.com/anthonykrivonos",
-      LINKEDIN: "http://linkedin.com/in/anthonykrivonos",
-      STACKOVERFLOW: "https://stackoverflow.com/users/7432026/anthony-krivonos",
+      GITHUB: "https://www.github.com/anthonykrivonos/",
+      LINKEDIN: "https://www.linkedin.com/in/anthonykrivonos/",
+      STACKOVERFLOW: "https://www.stackoverflow.com/users/7432026/anthony-krivonos/",
 };
+
+// URL Constants for Messaging
+let URL_ENDPOINTS = {
+      AUTH: "https://anthonykrivonos.herokuapp.com/auth/",
+      CONTACT: "https://anthonykrivonos.herokuapp.com/contact/"
+}
 
 let typewriter = (typewriterElement, onInterval, word = null) => {
       if (!typewriterElement.className.split(' ').includes("typewriter")) {
@@ -122,8 +128,96 @@ let graphizeSkills = (skills) => {
       });
 };
 
-let open = (url) => {
-      let NEW_TAB = "_blank";
-      window.open(url, NEW_TAB);
-      window.focus();
+// Sends any kind of XHR request to the specified url
+// type: 'GET', 'POST', etc.
+// url: (request endpoint)
+// headers: (2d array of options to values) [ ["", ""], ["", ""], ... ]
+// callbacks: functions with args (onSuccess:(response), onFail(response, code))
+// body: request body
+let sendRequest = (type, url, headers = [], onSuccess = null, onFail = null, body = null) => {
+      var xhr = new XMLHttpRequest();
+      xhr.open(type, url, true);
+      headers.forEach((header) => xhr.setRequestHeader(header[0], header[1]));
+      xhr.onreadystatechange = () => {
+            if (xhr.readyState === xhr.DONE) {
+                  if (xhr.status === 200 && onSuccess != null) {
+                        onSuccess(xhr.response);
+                  } else if (onSuccess != null) {
+                        onFail(xhr.response, this.status);
+                  }
+            }
+      };
+      xhr.send(body);
 };
+
+let openInConsole = (url) => {
+      let cs = document.getElementById("consoleWindow");
+      let editor = document.getElementById("consoleEditor");
+
+      let openInNewTab = () => {
+            console.error(`Error: Could not load ${url} in console. Opened new tab.`);
+            window.open(url, '_blank');
+            window.focus();
+      }
+
+      let hideEditor = () => {
+            console.log(`Success: Loaded ${url} in console.`);
+            editor.style.display = "none";
+            cs.style.display = "inline-block";
+      }
+
+      // Send request
+      sendRequest('GET', url, [
+            ['Access-Control-Allow-Origin', '*'],
+            ['Access-Control-Allow-Headers', 'Content-Type, Content-Security-Policy'],
+            ['Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS'],
+            ['Content-Type', `text/html; charset=utf-8`],
+            ['Content-Security-Policy', `frame-ancestors 'self'`]
+      ], (res) => {
+            // Success: 200
+            var data_url = URL.createObjectURL(res);
+            cs.src = data_url;
+            hideEditor();
+      }, (res, errorCode) => {
+            // Failure
+            openInNewTab();
+      });
+};
+
+let sendMessage = () => {
+
+      // Request body for auth
+      let uid = { uid: `${Date.now()}` };
+
+      // Request body for mail
+      let fields = {
+            name: document.getElementsByName("from")[0].value,
+            email: document.getElementsByName("email")[0].value,
+            subject: document.getElementsByName("subject")[0].value,
+            body: document.getElementsByName("message")[0].value
+      };
+
+      // Send auth request
+      sendRequest('POST', URL_ENDPOINTS.AUTH, [
+            ['Content-Type', 'application/json']
+      ], (res) => {
+            // Success: 200
+            // Authenticated, now send message
+            console.log(`Authenticated: ${res}`)
+            sendRequest('POST', URL_ENDPOINTS.CONTACT, [
+                  ['Content-Type', 'application/json'],
+                  ['x-access-token', res["auth-token"]]
+            ], (res) => {
+                  // Success: 200
+                  console.log('Message sent!');
+            }, (res, errorCode) => {
+                  // Failure
+                  console.error(`Couldn't send message: mail error.\n${res}`);
+            }, JSON.stringify(fields));
+
+      }, (res, errorCode) => {
+            // Failure
+            console.error(`Couldn't send message: authentication error.\n${res}`);
+      }, JSON.stringify(uid));
+
+}

@@ -197,10 +197,10 @@ body {
 }
 
 /* Responsive Clickable Elements */
-button, a, .chip {
+button:enabled, a, .chip {
       transition: var(--transition-standard);
 }
-button:hover, a:hover, .chip:hover {
+button:enabled:hover, a:hover, .chip:hover {
       -ms-transform: scale(0.95);
       -webkit-transform: scale(0.95);
       transform: scale(0.95);
@@ -457,8 +457,7 @@ button:hover, a:hover, .chip:hover {
       -webkit-transition: var(--transition-standard);
       border-radius: var(--half-gutter-width) !important;
       box-shadow: var(--shadow-flat);
-      overflow-y: auto;
-      overflow-x: hidden;
+      overflow: hidden;
 }
 .console:hover {
       box-shadow: var(--shadow-raised);
@@ -487,15 +486,19 @@ button:hover, a:hover, .chip:hover {
 }
 .console .mark:before {
       content: '/* SECTION: - ';
+      text-align: right;
 }
 .console .mark:after {
       content: ' */';
+      text-align: right;
 }
 .console .comment:before {
       content: '// ';
+      text-align: right;
 }
 .console .prompt:before {
       content: '> ';
+      text-align: right;
       color: #00A0BE;
 }
 .console .function {
@@ -507,6 +510,9 @@ button:hover, a:hover, .chip:hover {
       outline: none;
       text-decoration: underline;
       text-decoration-color: gray;
+}
+.console .function:disabled {
+      opacity: 0.4;
 }
 .console .function:before {
       content: 'AK.';
@@ -523,6 +529,13 @@ button:hover, a:hover, .chip:hover {
       color: white;
       float: right;
       width: calc(100% - 10px) !important;
+}
+#consoleWindow {
+      position: relative;
+      height: 100%;
+      width: 100%;
+      border: none;
+      display: none;
 }
 
 /* Horizontal Scroll Collection */

@@ -159,33 +159,34 @@
                                     <div class="col">
                                           <div class="console">
                                                 <div class="bar"></div>
-                                                <ol>
+                                                <iframe id="consoleWindow" name="consoleWindow"></iframe>
+                                                <ol id="consoleEditor">
                                                       <li><span class="mark">Email</span></li>
                                                       <li><!-- Empty Line --></li>
                                                       <li><div class="comment">👤 from</li></li>
                                                       <li><div class="prompt"><input type="text" name="from" placeholder="your full name"></div></li>
                                                       <li><!-- Empty Line --></li>
                                                       <li><div class="comment">📩 email</li></li>
-                                                      <li><div class="prompt"><input type="email" name="from" placeholder="your address"></div></li>
+                                                      <li><div class="prompt"><input type="email" name="email" placeholder="your address"></div></li>
                                                       <li><!-- Empty Line --></li>
                                                       <li><div class="comment">🏷 subject</li></li>
                                                       <li><div class="prompt"><input type="text" name="subject" placeholder="title"></div></li>
                                                       <li><!-- Empty Line --></li>
                                                       <li><div class="comment">📝 message</li></li>
-                                                      <li><div class="prompt"><input type="text" name="body" placeholder="the meat goes here..."></div></li>
+                                                      <li><div class="prompt"><input type="text" name="message" placeholder="the meat goes here..."></div></li>
                                                       <li><!-- Empty Line --></li>
-                                                      <li><button class="function">sendMessage</button></li>
+                                                      <li><button onclick="sendMessage()" class="function">sendMessage</button></li>
                                                       <li><!-- Empty Line --></li>
                                                       <li><span class="mark">Other</span></li>
                                                       <li><!-- Empty Line --></li>
                                                       <li><div class="comment">💻 GitHub</li></li>
-                                                      <li><button onclick="open(URL_CONSTANTS.GITHUB);" class="function">openGitHub</button></li>
+                                                      <li><button onclick="openInConsole(URL_CONSTANTS.GITHUB);" class="function">openGitHub</button></li>
                                                       <li><!-- Empty Line --></li>
                                                       <li><div class="comment">💼 LinkedIn</li></li>
-                                                      <li><button class="function">openLinkedIn</button></li>
+                                                      <li><button onclick="openInConsole(URL_CONSTANTS.LINKEDIN);" class="function">openLinkedIn</button></li>
                                                       <li><!-- Empty Line --></li>
                                                       <li><div class="comment">📚 StackOverflow</li></li>
-                                                      <li><button class="function">openStackOverflow</button></li>
+                                                      <li><button onclick="openInConsole(URL_CONSTANTS.STACKOVERFLOW);" class="function">openStackOverflow</button></li>
                                                 </ol>
                                           </div>
                                     </div>

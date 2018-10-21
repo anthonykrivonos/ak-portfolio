@@ -1,0 +1,22 @@
+{
+  "name": "anthonykrivonosmail",
+  "version": "1.0.0",
+  "description": "Email REST service for Anthony Krivonos website.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Anthony Krivonos",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cors": "^2.8.3",
+    "express": "^4.15.3",
+    "jwt-simple": "^0.5.1",
+    "moment": "^2.18.1",
+    "morgan": "^1.8.2",
+    "multer": "^1.3.0",
+    "nodemailer": "^4.0.1",
+    "xoauth2": "^1.2.0"
+  }
+}
