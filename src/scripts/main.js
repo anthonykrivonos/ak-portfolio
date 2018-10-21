@@ -141,9 +141,17 @@ let sendRequest = (type, url, headers = [], onSuccess = null, onFail = null, bod
       xhr.onreadystatechange = () => {
             if (xhr.readyState === xhr.DONE) {
                   if (xhr.status === 200 && onSuccess != null) {
-                        onSuccess(xhr.response);
+                        try {
+                              onSuccess(JSON.parse(xhr.response));
+                        } catch (e) {
+                              onSuccess(xhr.response);
+                        }
                   } else if (onSuccess != null) {
-                        onFail(xhr.response, this.status);
+                        try {
+                              onSuccess(JSON.parse(xhr.response), xhr.status);
+                        } catch (e) {
+                              onSuccess(xhr.response, xhr.status);
+                        }
                   }
             }
       };
@@ -175,9 +183,14 @@ let openInConsole = (url) => {
             ['Content-Security-Policy', `frame-ancestors 'self'`]
       ], (res) => {
             // Success: 200
-            var data_url = URL.createObjectURL(res);
-            cs.src = data_url;
-            hideEditor();
+            if (res != null && res != "") {
+                  var url = URL.createObjectURL(res);
+                  cs.src = url;
+                  hideEditor();
+            } else {
+                  // Failure
+                  openInNewTab();
+            }
       }, (res, errorCode) => {
             // Failure
             openInNewTab();
@@ -204,9 +217,10 @@ let sendMessage = () => {
             // Success: 200
             // Authenticated, now send message
             console.log(`Authenticated: ${res}`)
+            console.log(`Token: ${res["auth-token"]}`);
             sendRequest('POST', URL_ENDPOINTS.CONTACT, [
                   ['Content-Type', 'application/json'],
-                  ['x-access-token', res["auth-token"]]
+                  ['auth-token', res["auth-token"]]
             ], (res) => {
                   // Success: 200
                   console.log('Message sent!');
