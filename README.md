@@ -13,6 +13,7 @@ View the legacy *anthonykrivonos.com* repo [here](https://github.com/anthonykriv
 * [Firebase](https://firebase.google.com/) - Hosting
 * [FullPage.js](https://alvarotrigo.com/fullPage/) - Pagination
 * [React](https://reactjs.org/) - Dynamic content loading
+* [Random Color](https://github.com/davidmerfield/randomColor) - Random color tool
 
 ## License
 

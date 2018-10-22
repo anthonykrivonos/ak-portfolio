@@ -4,11 +4,18 @@
       09.17.2018
 */
 
+/*
+ *
+ *    Constants
+ *
+ */
+
 // URL Constants for Contacts
 let URL_CONSTANTS = {
       GITHUB: "https://www.github.com/anthonykrivonos/",
       LINKEDIN: "https://www.linkedin.com/in/anthonykrivonos/",
       STACKOVERFLOW: "https://www.stackoverflow.com/users/7432026/anthony-krivonos/",
+      RESUME: "https://docs.google.com/viewer?url=https://docs.google.com/document/d/1ftyJz3rHQT0U5rJE5VkJjxBgr7y6zOXELJdXfXUkayg/export?format=pdf"
 };
 
 // URL Constants for Messaging
@@ -16,6 +23,12 @@ let URL_ENDPOINTS = {
       AUTH: "https://anthonykrivonos.herokuapp.com/auth/",
       CONTACT: "https://anthonykrivonos.herokuapp.com/contact/"
 }
+
+/*
+ *
+ *    UI Functions
+ *
+ */
 
 let typewriter = (typewriterElement, onInterval, word = null) => {
       if (!typewriterElement.className.split(' ').includes("typewriter")) {
@@ -84,6 +97,7 @@ let randomizeHue = (onElement, onInterval = null) => {
             return null;
       }
 };
+
 // Generates a color from a given string value
 let colorFromString = (str) => {
       var hash = 0;
@@ -128,6 +142,62 @@ let graphizeSkills = (skills) => {
       });
 };
 
+let emitConfettiBriefly = (duration) => {
+      if (emitConfetti) {
+            emitConfetti();
+            setTimeout(() => {
+                  stopConfetti();
+            }, duration);
+      }
+}
+
+/*
+ *
+ *    Validation Functions
+ *
+ */
+
+let isValidEmail = (email) => {
+      var emailRegEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return emailRegEx.test(email.toLowerCase());
+};
+
+let isValidName = (name) => {
+      return name != null && name.length > 3;
+};
+
+let isValidSubject = (subject) => {
+      return subject != null && subject.length > 0;
+};
+
+let isValidMessage = (message) => {
+      return message != null && message.length > 10;
+};
+
+let validateFields = () => {
+      var isValid = isValidName(document.getElementsByName("from")[0].value) && isValidEmail(document.getElementsByName("email")[0].value) && isValidSubject(document.getElementsByName("subject")[0].value) && isValidMessage(document.getElementsByName("message")[0].value);
+
+      document.getElementById("sendButton").disabled = !isValid;
+};
+
+/*
+ *
+ *    Browser Operations
+ *
+ */
+
+let openInNewTab = (url) => {
+      console.log(`Opening ${url} in new tab.`);
+      window.open(url, '_blank');
+      window.focus();
+};
+
+/*
+ *
+ *    Clientside Functions
+ *
+ */
+
 // Sends any kind of XHR request to the specified url
 // type: 'GET', 'POST', etc.
 // url: (request endpoint)
@@ -135,22 +205,22 @@ let graphizeSkills = (skills) => {
 // callbacks: functions with args (onSuccess:(response), onFail(response, code))
 // body: request body
 let sendRequest = (type, url, headers = [], onSuccess = null, onFail = null, body = null) => {
-      var xhr = new XMLHttpRequest();
-      xhr.open(type, url, true);
-      headers.forEach((header) => xhr.setRequestHeader(header[0], header[1]));
-      xhr.onreadystatechange = () => {
-            if (xhr.readyState === xhr.DONE) {
-                  if (xhr.status === 200 && onSuccess != null) {
+       var xhr = new XMLHttpRequest();
+       xhr.open(type, url, true);
+       headers.forEach((header) => xhr.setRequestHeader(header[0], header[1]));
+       xhr.onreadystatechange = () => {
+             if (xhr.readyState === xhr.DONE) {
+                   if (xhr.status === 200 && onSuccess != null) {
                         try {
                               onSuccess(JSON.parse(xhr.response));
                         } catch (e) {
                               onSuccess(xhr.response);
                         }
-                  } else if (onSuccess != null) {
+                  } else if (onFail != null) {
                         try {
-                              onSuccess(JSON.parse(xhr.response), xhr.status);
+                              onFail(JSON.parse(xhr.response), xhr.status);
                         } catch (e) {
-                              onSuccess(xhr.response, xhr.status);
+                              onFail(xhr.response, xhr.status);
                         }
                   }
             }
@@ -158,59 +228,57 @@ let sendRequest = (type, url, headers = [], onSuccess = null, onFail = null, bod
       xhr.send(body);
 };
 
-let openInConsole = (url) => {
-      let cs = document.getElementById("consoleWindow");
-      let editor = document.getElementById("consoleEditor");
-
-      let openInNewTab = () => {
-            console.error(`Error: Could not load ${url} in console. Opened new tab.`);
-            window.open(url, '_blank');
-            window.focus();
-      }
-
-      let hideEditor = () => {
-            console.log(`Success: Loaded ${url} in console.`);
-            editor.style.display = "none";
-            cs.style.display = "inline-block";
-      }
-
-      // Send request
-      sendRequest('GET', url, [
-            ['Access-Control-Allow-Origin', '*'],
-            ['Access-Control-Allow-Headers', 'Content-Type, Content-Security-Policy'],
-            ['Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS'],
-            ['Content-Type', `text/html; charset=utf-8`],
-            ['Content-Security-Policy', `frame-ancestors 'self'`]
-      ], (res) => {
-            // Success: 200
-            if (res != null && res != "") {
-                  var url = URL.createObjectURL(res);
-                  cs.src = url;
-                  hideEditor();
-            } else {
-                  // Failure
-                  openInNewTab();
-            }
-      }, (res, errorCode) => {
-            // Failure
-            openInNewTab();
-      });
-};
-
 let sendMessage = () => {
 
       // Request body for auth
       let uid = { uid: `${Date.now()}` };
 
+      // Get email header span from the document
+      let emailHeader = document.getElementById("emailHeader");
+
+      // Get fields from the document
+      let nameField = document.getElementsByName("from")[0];
+      let emailField = document.getElementsByName("email")[0];
+      let subjectField = document.getElementsByName("subject")[0];
+      let messageField = document.getElementsByName("message")[0];
+
+      // Get button from the document
+      let sendButton = document.getElementById("sendButton");
+
+      // Disable/enable the fields
+      let setEnabled = (enable) => {
+            nameField.disabled = !enable;
+            emailField.disabled = !enable;
+            subjectField.disabled = !enable;
+            messageField.disabled = !enable;
+      };
+
+      // Clear the form
+      let clearFields = () => {
+            nameField.value = "";
+            emailField.value = "";
+            subjectField.value = "";
+            messageField.value = "";
+      };
+
+      // Set the header message
+      let setMessage = (message) => {
+            typewriter(emailHeader, 1, message);
+      };
+
       // Request body for mail
       let fields = {
-            name: document.getElementsByName("from")[0].value,
-            email: document.getElementsByName("email")[0].value,
-            subject: document.getElementsByName("subject")[0].value,
-            body: document.getElementsByName("message")[0].value
+            name: nameField.value,
+            email: emailField.value,
+            subject: subjectField.value,
+            body: messageField.value
       };
 
       // Send auth request
+      sendButton.disabled = true;
+      setEnabled(false);
+      setMessage("Sending...");
+      emitConfettiBriefly(10000);
       sendRequest('POST', URL_ENDPOINTS.AUTH, [
             ['Content-Type', 'application/json']
       ], (res) => {
@@ -224,14 +292,42 @@ let sendMessage = () => {
             ], (res) => {
                   // Success: 200
                   console.log('Message sent!');
+                  messageField.placeholder = "thanks for the message!"
+                  setMessage("Message Sent!");
+                  setEnabled(true);
+                  clearFields();
             }, (res, errorCode) => {
                   // Failure
                   console.error(`Couldn't send message: mail error.\n${res}`);
+                  setEnabled(true);
+                  setMessage("Couldn't send.");
             }, JSON.stringify(fields));
 
       }, (res, errorCode) => {
             // Failure
             console.error(`Couldn't send message: authentication error.\n${res}`);
+            setEnabled(true);
+            setMessage("Couldn't send.");
       }, JSON.stringify(uid));
 
-}
+};
+
+// Open the resume in the embedded viewer
+let openResume = () => {
+      let cs = document.getElementsByClassName("resume")[0];
+      let button = document.getElementById("resumeButton");
+
+      // Hide the button
+      button.style.display = "none";
+      cs.style.width = "80vw";
+};
+
+// Hide the resume in the embedded viewer
+let hideResume = () => {
+      let cs = document.getElementsByClassName("resume")[0];
+      let button = document.getElementById("resumeButton");
+
+      // Hide the button
+      button.style.display = "inline-block";
+      cs.style.width = "calc(75vh * (8.5/11))";
+};

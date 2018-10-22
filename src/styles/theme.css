@@ -208,6 +208,36 @@ button:enabled:hover, a:hover, .chip:hover {
       cursor: pointer;
 }
 
+/* Responsive Button */
+.res-button:before {
+      content: "";
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+      display: block;
+      width: 0;
+      padding-top: 0;
+
+      border-radius: 100%;
+
+      background-color: rgba(236, 240, 241, .3);
+
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+}
+
+.res-button:active:before {
+      width: 120%;
+      padding-top: 120%;
+
+      transition: width .2s ease-out, padding-top .2s ease-out;
+}
+
 /* Custom Separator Styling */
 .separator-left, .separator-right {
       border-radius: 1px;
@@ -451,13 +481,15 @@ button:enabled:hover, a:hover, .chip:hover {
       margin-left: 12.5%;
       width: 75%;
       background: #1E2028;
-      font-family: monospace;
       color: white;
       transition: var(--transition-standard);
       -webkit-transition: var(--transition-standard);
       border-radius: var(--half-gutter-width) !important;
       box-shadow: var(--shadow-flat);
       overflow: hidden;
+}
+#contactConsole {
+      font-family: monospace;
 }
 .console:hover {
       box-shadow: var(--shadow-raised);
@@ -538,6 +570,40 @@ button:enabled:hover, a:hover, .chip:hover {
       display: none;
 }
 
+/* Resume */
+.resume {
+      width: calc(75vh * (8.5/11));
+      margin: auto;
+      transition: transform var(--transition-standard);
+      -webkit-transition: transform var(--transition-standard);
+}
+.resume embed {
+      width: 100%;
+      height: 100%;
+}
+.resume .open {
+      color: white;
+      text-align: center;
+      font-size: 2vh;
+      text-transform: uppercase;
+      width: 100%;
+      height: 100%;
+      border: none;
+      outline: none;
+      position: absolute;
+      z-index: 1;
+      opacity: 0;
+}
+.resume .open:hover {
+      z-index: 1;
+      transition: var(--transition-standard);
+      -webkit-transition: var(--transition-standard);
+      width: 100%;
+      height: 100%;
+      opacity: 0.6;
+      transform: scale(1);
+}
+
 /* Horizontal Scroll Collection */
 .collection {
 
@@ -579,6 +645,8 @@ button:enabled:hover, a:hover, .chip:hover {
       top: 0;
       left: 0;
       right: 0;
+      transition: var(--transition-standard);
+      -webkit-transition: var(--transition-standard);
 }
 .nav-item {
       text-align: center;
@@ -597,6 +665,11 @@ button:enabled:hover, a:hover, .chip:hover {
       width: 30px !important;
       padding: 0 !important;
       margin: 0 !important;
+}
+
+/* Confetti */
+#confetti {
+      position: absolute;
 }
 
 /* Section 0 Items */
