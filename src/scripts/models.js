@@ -6,21 +6,14 @@
 
 'use strict';
 
-// MARK: - Skill
-class Skill {
-      constructor(name, projects = []) {
-            this.name = name;                // Name of the skill
-            this.projects = projects;        // List of projects associated with the skill
-      }
-}
-
 // MARK: - Project
 class Project {
-      constructor(name, year, description, src, skills = []) {
-            this.name = name;                // Name of the project
-            this.year = year;                // String representation of the year(s) the project was made
+      constructor(title, years, description, src, url, skills = []) {
+            this.title = title;              // Title of the project
+            this.years = years;              // String representation of the years the project was made
             this.description = description;  // Description of the project
             this.src = src;                  // Source URL of the project's image
+            this.url = url;                  // URL of the projects's homepage
             this.skills = skills;            // List of skills associated with the project
       }
 }

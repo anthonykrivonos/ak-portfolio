@@ -114,9 +114,11 @@ let colorFromString = (str) => {
       return colour;
 }
 
-let graphizeSkills = (skills) => {
+// Initialize skills
+let initializeSkills = (skillsMap, canvas) => {
+      let skills = Object.keys(skillsMap).map((key) => [key, skillsMap[key]]);
       let SIZE = "100px";
-      var ctx = document.getElementById('skillsChart').getContext('2d');
+      var ctx = canvas.getContext('2d');
       ctx.canvas.width = SIZE;
       ctx.canvas.height = SIZE;
       var data = {
@@ -126,11 +128,11 @@ let graphizeSkills = (skills) => {
             }],
             labels: []
       };
-      skills.sort((a, b) => a.name > b.name);
+      skills.sort((a, b) => a[0] > b[0]);
       skills.forEach((skill) => {
-            data.datasets[0].data.push(skill.projects.length);
-            data.datasets[0].backgroundColor.push(colorFromString(skill.name));
-            data.labels.push(skill.name);
+            data.datasets[0].data.push(skill[1]);
+            data.datasets[0].backgroundColor.push(colorFromString(skill[0]));
+            data.labels.push(skill[0]);
       });
       var options = {
             cutoutPercentage: 50,

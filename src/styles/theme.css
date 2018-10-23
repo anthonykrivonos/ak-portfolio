@@ -577,9 +577,10 @@ button:enabled:hover, a:hover, .chip:hover {
       transition: transform var(--transition-standard);
       -webkit-transition: transform var(--transition-standard);
 }
-.resume embed {
+.resume iframe {
       width: 100%;
       height: 100%;
+      border: none;
 }
 .resume .open {
       color: white;

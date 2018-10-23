@@ -119,9 +119,7 @@
                         </div>
                   </div>
                   <div class="section table-like">
-                        <section class="chart">
-                              <div id="skillsTitle" class="font-size-xs text-center margin-md-bottom">🛠 <b>Skills</b> by # of Projects</div>
-                              <canvas id="skillsChart"></canvas>
+                        <section id="skillsChart" class="chart">
                         </section>
                   </div>
                   <div class="section">
@@ -129,36 +127,10 @@
                         </div>
                   </div>
                   <div class="section">
-                        <div class="container">
-                              <div class="row">
-                                    <div class="col col-xs-12">
-                                          <div class="carousel">
-                                                <div class="carousel-row">
-                                                      <div class="carousel-tile">
-                                                            <div class="carousel-image" style="background: url('https://firebasestorage.googleapis.com/v0/b/anthony-krivonos-website.appspot.com/o/projects%2Finstastore_isometric.jpg?alt=media&token=9af7bdb6-1ff8-45bb-a06e-4475e9d09a30')"></div>
-                                                            <div class="carousel-text">
-                                                                  <div class="carousel-title">
-                                                                        Instastore
-                                                                        <div class="chip">Node.js</div>
-                                                                        <div class="chip">Express</div>
-                                                                  </div>
-                                                                  <div class="carousel-body">Did something pretty cool.</div>
-                                                                  <!-- <div class="carousel-subtitle">2017</div> -->
-                                                                  <div class="carousel-footer" onclick="openInNewTab('http://www.google.com/')">👋🏻 Learn More</div>
-                                                            </div>
-                                                      </div>
-                                                </div>
-                                          </div>
-                                    </div>
-                              </div>
-                        </div>
+                        <div id="projectsCarousel" class="container"></div>
                   </div>
                   <div class="section">
-                        <div class="container table-like">
-                              <div class="console resume">
-                                    <button id="resumeButton" onclick="openResume()" class="res-button open">View Resume</button>
-                                    <embed onmouseover="fullPageJS.setAllowScrolling(false);"  onmouseout="fullPageJS.setAllowScrolling(true);" id="resumeViewer" src="files/resume.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&navpanes=0&view=FitBH"/>
-                              </div>
+                        <div id="resumeContainer" class="container table-like">
                         </div>
                   </div>
                   <div class="section">
@@ -198,24 +170,6 @@
                                           </div>
                                     </div>
                                     <div id="about" class="col col-md-4 d-none d-sm-flex">
-                                          <div class="about-inner">
-                                                <h4>🎉 About Me</h4>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae ultrices metus. Praesent posuere mi non leo fringilla fringilla. Sed dictum lacus ut lorem laoreet interdum. Quisque vulputate congue orci vel feugiat.</p>
-                                                <h5>🔗A Few More Links</h5>
-                                                <ul class="list-unstyled">
-                                                      <li>
-                                                            <a href="#!">My Former Portfolio</a>
-                                                      </li>
-                                                      <li>
-                                                            <a href="#!">This Project's Repo</a>
-                                                      </li>
-                                                      <li>
-                                                            <a href="#!">Resume Direct Download</a>
-                                                      </li>
-                                                </ul>
-                                                <h5>&copy; Copyright</h5>
-                                                <div>Anthony Krivonos | <span class="year"></span></div>
-                                          </div>
                                     </div>
                               </div>
                         </div>
@@ -232,8 +186,8 @@
             <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
             <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-firestore.js"></script>
 
-            <!-- React -->
-            <script type="text/jsx" src="scripts/react/experience.js"></script>
+            <!-- React Data Binding -->
+            <script type="text/jsx" src="scripts/binding.js"></script>
 
             <script>
 
@@ -343,12 +297,6 @@
                                           case 1:
                                                 // Section 1 Animations
                                                 $("#skillsTitle").animate("fadeInDownBig");
-                                                graphizeSkills([
-                                                      new Skill('Python', ['Hi', 'Bye']),
-                                                      new Skill('C++', ['Hi', 'Bye']),
-                                                      new Skill('Java', ['Hi']),
-                                                      new Skill('Swift', ['Hi', 'Hi', 'Hi'])
-                                                ])
                                                 $(".card:even").animate("fadeOutRight delay-3s");
                                                 $(".card:odd").animate("fadeOutLeft delay-3s");
                                                 break;
@@ -365,11 +313,6 @@
                                           case 4:
                                                 $(".resume").animate("zoomIn delay-3s");
                                                 $("#contactConsole").animate("zoomOut");
-                                                let color = randomColor({
-                                                      luminosity: 'dark',
-                                                      hue: 'random'
-                                                });
-                                                $("#resumeButton").css("background", color);
                                                 $("#about").animate("fadeOutRight delay-3s");
                                                 break;
                                           case 5:
@@ -424,12 +367,6 @@
                         }
                   });
                   fullPageJS.setAllowScrolling(true);
-
-                  /* Set Year */
-                  let yearElements = document.getElementsByClassName("year");
-                  for (var i = 0; i < yearElements.length; i++) {
-                        yearElements[0].innerHTML = (new Date()).getFullYear();
-                  }
             </script>
       </body>
 </html>
