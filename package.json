@@ -1,0 +1,43 @@
+{
+      "name": "ak-portfolio",
+      "version": "1.0.0",
+      "description": "Anthony Krivonos is a student software developer from NYC with years of full stack, mobile, AR/VR, and UX design experience. This portfolio showcases his projects, skills, and achievements through an interactive user experience.",
+      "main": "index.js",
+      "scripts": {
+            "start": "nodemon --exec \"http-server ./src\" ./ && open 127.0.0.1:8080",
+            "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "repository": {
+            "type": "git",
+            "url": "git+https://github.com/anthonykrivonos/ak-portfolio.git"
+      },
+      "keywords": [
+            "anthony",
+            "krivonos",
+            "software",
+            "developer",
+            "engineer",
+            "portfolio",
+            "frontend",
+            "backend",
+            "ui",
+            "ux",
+            "designer",
+            "developer",
+            "ar",
+            "vr",
+            "website",
+            "resume",
+            "cv",
+            "interactive"
+      ],
+      "author": "Anthony Krivonos",
+      "license": "MIT",
+      "bugs": {
+            "url": "https://github.com/anthonykrivonos/ak-portfolio/issues"
+      },
+      "homepage": "https://github.com/anthonykrivonos/ak-portfolio#readme",
+      "dependencies": {
+            "nodemon": "^1.18.4"
+      }
+}

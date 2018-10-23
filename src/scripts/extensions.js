@@ -4,6 +4,8 @@
       09.17.2018
 */
 
+'use strict';
+
 /*
       Array Methods
 */

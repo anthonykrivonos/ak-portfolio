@@ -1,3 +1,9 @@
+/*
+      Anthony Krivonos
+      src/scripts/confetti.js
+      10.22.2018
+*/
+
 // globals
 var canvas;
 var ctx;

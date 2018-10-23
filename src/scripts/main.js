@@ -4,6 +4,8 @@
       09.17.2018
 */
 
+'use strict';
+
 /*
  *
  *    Constants
@@ -142,15 +144,6 @@ let graphizeSkills = (skills) => {
       });
 };
 
-let emitConfettiBriefly = (duration) => {
-      if (emitConfetti) {
-            emitConfetti();
-            setTimeout(() => {
-                  stopConfetti();
-            }, duration);
-      }
-}
-
 /*
  *
  *    Validation Functions
@@ -278,7 +271,6 @@ let sendMessage = () => {
       sendButton.disabled = true;
       setEnabled(false);
       setMessage("Sending...");
-      emitConfettiBriefly(10000);
       sendRequest('POST', URL_ENDPOINTS.AUTH, [
             ['Content-Type', 'application/json']
       ], (res) => {
@@ -292,8 +284,9 @@ let sendMessage = () => {
             ], (res) => {
                   // Success: 200
                   console.log('Message sent!');
-                  messageField.placeholder = "thanks for the message!"
+                  messageField.placeholder = "thanks for your message!"
                   setMessage("Message Sent!");
+                  setTimeout(() => emitConfetti(), 10000);
                   setEnabled(true);
                   clearFields();
             }, (res, errorCode) => {

@@ -276,7 +276,7 @@ button:enabled:hover, a:hover, .chip:hover {
       width: 0%;
       height: 100% !important;
       border-radius: var(--half-gutter-width) !important;
-      background-position: center !important;
+      background-position: left !important;
       background-clip: padding-box !important;
       background-repeat: no-repeat !important;
       background-size: cover;
@@ -432,8 +432,6 @@ button:enabled:hover, a:hover, .chip:hover {
       padding: 2vw !important;
 }
 .brag-cards .card {
-      width: 80%;
-      margin-left: 10%;
       border-radius: var(--half-gutter-width) !important;
       border: none;
       transition: var(--transition-standard);
@@ -442,8 +440,6 @@ button:enabled:hover, a:hover, .chip:hover {
 }
 .brag-cards .card:hover {
       border: none;
-      box-shadow: var(--shadow-raised);
-      transform: scale(1.1);
 }
 
 .chart {
@@ -478,15 +474,15 @@ button:enabled:hover, a:hover, .chip:hover {
 }
 .console {
       height: 75vh;
-      margin-left: 12.5%;
-      width: 75%;
+      margin-left: 8%;
+      width: 84%;
       background: #1E2028;
       color: white;
       transition: var(--transition-standard);
       -webkit-transition: var(--transition-standard);
       border-radius: var(--half-gutter-width) !important;
       box-shadow: var(--shadow-flat);
-      overflow: hidden;
+      overflow: auto;
 }
 #contactConsole {
       font-family: monospace;
@@ -568,6 +564,10 @@ button:enabled:hover, a:hover, .chip:hover {
       width: 100%;
       border: none;
       display: none;
+}
+.footer {
+      width: 100%;
+      text-align: center;
 }
 
 /* Resume */
@@ -667,6 +667,16 @@ button:enabled:hover, a:hover, .chip:hover {
       margin: 0 !important;
 }
 
+/* Info */
+#about {
+      display: flex !important;
+      flex-direction: column;
+      justify-content: center;
+}
+.about-inner {
+      padding-right: 4vw;
+}
+
 /* Confetti */
 #confetti {
       position: absolute;
@@ -698,22 +708,54 @@ button:enabled:hover, a:hover, .chip:hover {
 
 /* Custom, iPhone Retina */
 @media only screen and (min-width : 0px) {
-
+      #contactConsole {
+            margin-left: 3%;
+            width: 96%;
+      }
+      .console:hover {
+            transform: scale(1);
+      }
+      .brag-cards .card {
+            width: 98%;
+            margin-left: 2%;
+      }
+      .brag-cards .card:hover {
+            transform: scale(1);
+      }
+      #about {
+            display: none !important;
+      }
 }
 
 /* Custom, iPhone Retina */
 @media only screen and (min-width : 321px) {
-
+      #contactConsole {
+            margin-left: 8%;
+            width: 84%;
+      }
+      .brag-cards .card {
+            width: 80%;
+            margin-left: 10%;
+      }
+      .brag-cards .card:hover {
+            box-shadow: var(--shadow-raised);
+            transform: scale(1.1);
+      }
 }
 
 /* Extra Small Devices, Phones */
 @media only screen and (min-width : 481px) {
-
+      .console:hover {
+            box-shadow: var(--shadow-raised);
+            transform: scale(1.1);
+      }
 }
 
 /* Small Devices, Tablets */
-@media only screen and (min-width : 769px) {
-
+@media only screen and (min-width : 768px) {
+      #about {
+            display: flex !important;
+      }
 }
 
 /* Medium Devices, Desktops */

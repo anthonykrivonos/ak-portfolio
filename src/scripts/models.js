@@ -4,6 +4,8 @@
       10.12.2018
 */
 
+'use strict';
+
 // MARK: - Skill
 class Skill {
       constructor(name, projects = []) {
@@ -25,10 +27,11 @@ class Project {
 
 // MARK: - Experience
 class Experience {
-      constructor(name, year, position, src) {
-            this.name = name;             // Name of the experience
-            this.year = year;             // String representation of the year(s) the experience was made
+      constructor(company, years, position, src, url) {
+            this.company = company;          // Company
+            this.years = years;           // String representation of the years the experience was held
             this.position = position;     // Experience's position
             this.src = src;               // Source URL of the experience's image
+            this.url = url;               // URL of the experience's homepage
       }
 }
