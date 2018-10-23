@@ -18,8 +18,8 @@
 
       /* Animatables */
       --transition-slow:      1s;
-      --transition-standard:  0.5s;
-      --transition-fast:      0.3s;
+      --transition-standard:  0.3s;
+      --transition-fast:      0.1s;
 
       /* Box Shadows */
       --shadow-none:    0 0 0 rgba(0,0,0,0), 0 0 0 rgba(0,0,0,0);
@@ -35,7 +35,7 @@ body {
 }
 .navbar {
       z-index: 1;
-      background: linear-gradient(white, rgba(0, 0, 0, 0));
+      background: none;
 }
 
 /* Transition Classes */
@@ -324,6 +324,9 @@ button:enabled:hover, a:hover, .chip:hover {
 }
 
 /* Custom Carousel Elements */
+.carousel {
+      overflow-x: scroll;
+}
 .carousel-row {
       padding-top: 2vh;
       padding-bottom: 2vh;
@@ -365,14 +368,18 @@ button:enabled:hover, a:hover, .chip:hover {
 }
 .carousel-tile:hover .carousel-text {
       height: 10vh;
-      padding: var(--gutter-width);
+      padding-top: 0.5vh;
+      padding-bottom: 0.5vh;
+      padding-left: var(--gutter-width);
       opacity: 1;
 }
 .carousel-title {
       width: 100%;
+      height: 3vh;
       float: left;
       font-weight: 500;
       overflow-x: auto;
+      padding-right: var(--gutter-width);
 }
 .carousel-title .chip {
       width: auto !important;
@@ -381,6 +388,7 @@ button:enabled:hover, a:hover, .chip:hover {
       border-radius: 4px;
       font-weight: 400;
       font-size: 1.5vh;
+      margin-left: 4px;
       padding-left: 4px;
       padding-right: 4px;
       vertical-align: middle;
@@ -394,18 +402,26 @@ button:enabled:hover, a:hover, .chip:hover {
 }
 .carousel-body {
       width: 100%;
+      height: 3vh;
       float: left;
       display: block;
       font-size: 1.75vh;
+      overflow-x: auto;
+      padding-right: var(--gutter-width);
 }
 .carousel-footer {
+      height: 3vh;
       width: 100%;
       float: left;
-      display: block;
       text-align: center;
-      margin-top: 4px;
       font-size: 8pt;
       color: gray;
+      display: flex !important;
+      flex-direction: column;
+      justify-content: center;
+}
+.carousel-footer div {
+      display: block;
 }
 
 /* Interactables Section Button */

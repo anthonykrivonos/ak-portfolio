@@ -135,13 +135,13 @@ let initializeSkills = (skillsMap, canvas) => {
             data.labels.push(skill[0]);
       });
       var options = {
-            cutoutPercentage: 50,
             responsiveAnimationDuration: 500,
             responsive: true
       };
+      Chart.defaults.global.legend =
       new Chart(ctx, {
             data: data,
-            type: 'polarArea',
+            type: 'doughnut',
             options: options
       });
 };
@@ -311,10 +311,17 @@ let sendMessage = () => {
 let openResume = () => {
       let cs = document.getElementsByClassName("resume")[0];
       let button = document.getElementById("resumeButton");
+      let viewer = document.getElementById("resumeViewer");
 
-      // Hide the button
-      button.style.display = "none";
-      cs.style.width = "80vw";
+      // If small width
+      if ($(window).width() < 481) {
+            // Open in new tab
+            openInNewTab(viewer.src);
+      } else {
+            // Open in console
+            button.style.display = "none";
+            cs.style.width = "80vw";
+      }
 };
 
 // Hide the resume in the embedded viewer

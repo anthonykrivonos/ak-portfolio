@@ -47,13 +47,13 @@ let Projects = (props) => {
       const projectItems = props.projects.map((project, i) =>
             <div key={i} value={i} className="carousel-tile">
                   <div className="carousel-image" style={{'background': `url(${project.src})`}}></div>
-                  <div className="carousel-text">
+            <div className="carousel-text" onClick={() => openInNewTab(project.url)}>
                         <div className="carousel-title">
                               {project.title}
                               {project.skills.map((skill, i) => <SkillChip key={i} value={i} skill={skill}/>)}
                         </div>
                         <div className="carousel-body">{project.description}</div>
-                        <div className="carousel-footer" onClick={() => openInNewTab(project.url)}>👋🏻 Learn More</div>
+                        <div className="carousel-footer"><div>👋🏻 Learn More</div></div>
                   </div>
             </div>
       );
@@ -71,7 +71,7 @@ let Projects = (props) => {
 let SkillChip = (props) => {
 
       return (
-            <div className="chip">{props.skill}</div>
+            <div className="chip unselectable">{props.skill}</div>
       );
 };
 
@@ -108,7 +108,7 @@ let About = (props) => {
 
       let year = (new Date()).getFullYear();
       let aboutText = props.text;
-      let links = Object.keys(props.links).map((key) => [key, props.links[key]]).sort((a, b) => a[0] - b[0]);
+      let links = Object.keys(props.links).map((key) => [key, props.links[key]]).sort((a, b) => a[0] > b[0]);
 
       return (
             <div className="about-inner">
@@ -116,11 +116,11 @@ let About = (props) => {
                   <p>{aboutText}</p>
                   <h5>🔗A Few More Links</h5>
                   <ul className="list-unstyled">
-                        {links.map((link) => <li class="text-primary"><a onClick={() => openInNewTab(link[1])}>{link[0]}</a></li>)}
+                        {links.map((link, i) => <li key={i} value={i} className="text-primary"><a onClick={() => openInNewTab(link[1])}>{link[0]}</a></li>)}
                   </ul>
                   <h5>👾 Developed In</h5>
                   <ul className="list-unstyled">
-                        <li>Node.js, React, Bootstrap, and Firebase</li>
+                        <li>Node.js, React, JQuery, Bootstrap, and Firebase</li>
                   </ul>
                   <h5>&copy; Copyright</h5>
                   <div>Anthony Krivonos | <span>{year}</span></div>
@@ -154,8 +154,9 @@ let About = (props) => {
                   let projectObjects = [];
                   let skillsMap = {};
                   projects.forEach((project) => {
-                        projectObjects.push(new Project(project.title, project.years, project.description, project.src, project.url, project.skills));
-                        project.skills.forEach((skill) => {
+                        let skills = project.skills.sort((a, b) => a > b);
+                        projectObjects.push(new Project(project.title, project.years, project.description, project.src, project.url, skills));
+                        skills.forEach((skill) => {
                               if (skillsMap[skill]) {
                                     skillsMap[skill]++;
                               } else {
