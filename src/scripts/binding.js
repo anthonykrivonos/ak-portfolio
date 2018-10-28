@@ -27,8 +27,8 @@ let ExperienceGroup = (props) => {
                         <a href={experience.url} style={{'background': `url(${experience.src})`}} className="experience-image"></a>
                         <div className="experience-text">
                               <span className="experience-title font-size-sm">{experience.company}</span>
-                              <span className="experience-year font-size-xs">{experience.years}</span>
-                              <span className="experience-position font-size-xs">{experience.position}</span>
+                              <span className="experience-year">{experience.years}</span>
+                              <div className="experience-position">{experience.position}</div>
                         </div>
                   </div>
             </div>
@@ -143,6 +143,7 @@ let About = (props) => {
                   work.forEach((experience) => {
                         experienceObjects.push(new Experience(experience.company, experience.years, experience.position, experience.src, experience.url));
                   });
+                  experienceObjects.sort((a, b) => a.years < b.years);
                   ReactDOM.render(
                         <ExperienceGroup experiences={experienceObjects}/>,
                         document.getElementById('experienceGroup')
@@ -164,6 +165,7 @@ let About = (props) => {
                               }
                         })
                   });
+                  projectObjects.sort((a, b) => a.years < b.years);
                   ReactDOM.render(
                         <Projects projects={projectObjects}/>,
                         document.getElementById('projectsCarousel')

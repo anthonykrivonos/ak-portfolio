@@ -32,6 +32,29 @@ let URL_ENDPOINTS = {
  *
  */
 
+// Turns an element into a panning view
+$.fn.panGesture = function() {
+      var attachment = false, lastPosition, position, difference;
+      $($(this).selector).on("mousedown mouseup mousemove", function(e) {
+            console.log("caught")
+            if (e.type == "mousedown") {
+                  attachment = true;
+                  lastPosition = [e.clientX, e.clientY];
+            } else if (e.type == "mouseup" ) {
+                  attachment = false;
+            } else if (e.type == "mousemove" && attachment) {
+                  position = [e.clientX, e.clientY];
+                  difference = [ (position[0]-lastPosition[0]), (position[1]-lastPosition[1]) ];
+                  $(this).scrollLeft($(this).scrollLeft() - difference[0]);
+                  $(this).scrollTop($(this).scrollTop() - difference[1]);
+                  lastPosition = [e.clientX, e.clientY];
+            }
+      });
+      $(window).on("mouseup", function() {
+            attachment = false;
+      });
+}
+
 let typewriter = (typewriterElement, onInterval, word = null) => {
       if (!typewriterElement.className.split(' ').includes("typewriter")) {
             typewriterElement.className += " typewriter";
@@ -136,12 +159,18 @@ let initializeSkills = (skillsMap, canvas) => {
       });
       var options = {
             responsiveAnimationDuration: 500,
-            responsive: true
+            responsive: true,
+            legend: {
+                  display: false
+            },
+            tooltips: {
+                  enabled: true
+            }
       };
       Chart.defaults.global.legend =
       new Chart(ctx, {
             data: data,
-            type: 'doughnut',
+            type: 'pie',
             options: options
       });
 };
@@ -240,14 +269,6 @@ let sendMessage = () => {
       // Get button from the document
       let sendButton = document.getElementById("sendButton");
 
-      // Disable/enable the fields
-      let setEnabled = (enable) => {
-            nameField.disabled = !enable;
-            emailField.disabled = !enable;
-            subjectField.disabled = !enable;
-            messageField.disabled = !enable;
-      };
-
       // Clear the form
       let clearFields = () => {
             nameField.value = "";
@@ -258,7 +279,7 @@ let sendMessage = () => {
 
       // Set the header message
       let setMessage = (message) => {
-            typewriter(emailHeader, 1, message);
+            emailHeader.innerHTML = message;
       };
 
       // Request body for mail
@@ -271,8 +292,10 @@ let sendMessage = () => {
 
       // Send auth request
       sendButton.disabled = true;
-      setEnabled(false);
-      setMessage("Sending...");
+      setMessage("Message sent!");
+      clearFields();
+      emitConfetti();
+      setTimeout(() => stopConfetti(), 10000);
       sendRequest('POST', URL_ENDPOINTS.AUTH, [
             ['Content-Type', 'application/json']
       ], (res) => {
@@ -287,21 +310,15 @@ let sendMessage = () => {
                   // Success: 200
                   console.log('Message sent!');
                   messageField.placeholder = "thanks for your message!"
-                  setMessage("Message Sent!");
-                  setTimeout(() => emitConfetti(), 10000);
-                  setEnabled(true);
-                  clearFields();
             }, (res, errorCode) => {
                   // Failure
                   console.error(`Couldn't send message: mail error.\n${res}`);
-                  setEnabled(true);
                   setMessage("Couldn't send.");
             }, JSON.stringify(fields));
 
       }, (res, errorCode) => {
             // Failure
             console.error(`Couldn't send message: authentication error.\n${res}`);
-            setEnabled(true);
             setMessage("Couldn't send.");
       }, JSON.stringify(uid));
 
