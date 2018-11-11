@@ -59,8 +59,8 @@ let Projects = (props) => {
       );
 
       return (
-            <div className="carousel">
-                  <div className="carousel-row">
+            <div className="carousel dragscroll">
+                  <div className="carousel-row dragscroll">
                         {projectItems}
                   </div>
             </div>
@@ -69,7 +69,6 @@ let Projects = (props) => {
 
 // MARK: - SkillChip
 let SkillChip = (props) => {
-
       return (
             <div className="chip unselectable">{props.skill}</div>
       );
