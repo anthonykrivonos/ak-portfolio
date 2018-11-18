@@ -36,19 +36,19 @@ let URL_ENDPOINTS = {
 $.fn.panGesture = function() {
       var attachment = false, lastPosition, position, difference;
       $($(this).selector).on("mousedown mouseup mousemove", function(e) {
-            // console.log("caught")
-            // if (e.type == "mousedown") {
-            //       attachment = true;
-            //       lastPosition = [e.clientX, e.clientY];
-            // } else if (e.type == "mouseup" ) {
-            //       attachment = false;
-            // } else if (e.type == "mousemove" && attachment) {
-            //       position = [e.clientX, e.clientY];
-            //       difference = [ (position[0]-lastPosition[0]), (position[1]-lastPosition[1]) ];
-            //       $(this).scrollLeft($(this).scrollLeft() - difference[0]);
-            //       $(this).scrollTop($(this).scrollTop() - difference[1]);
-            //       lastPosition = [e.clientX, e.clientY];
-            // }
+            console.log("caught")
+            if (e.type == "mousedown") {
+                  attachment = true;
+                  lastPosition = [e.clientX, e.clientY];
+            } else if (e.type == "mouseup" ) {
+                  attachment = false;
+            } else if (e.type == "mousemove" && attachment) {
+                  position = [e.clientX, e.clientY];
+                  difference = [ (position[0]-lastPosition[0]), (position[1]-lastPosition[1]) ];
+                  $(this).scrollLeft($(this).scrollLeft() - difference[0]);
+                  $(this).scrollTop($(this).scrollTop() - difference[1]);
+                  lastPosition = [e.clientX, e.clientY];
+            }
       });
       $(window).on("mouseup", function() {
             attachment = false;

@@ -38,6 +38,7 @@
       },
       "homepage": "https://github.com/anthonykrivonos/ak-portfolio#readme",
       "dependencies": {
+            "firebase-tools": "^6.1.0",
             "nodemon": "^1.18.4"
       }
 }
