@@ -14,7 +14,6 @@ View the legacy *anthonykrivonos.com* repo [here](https://github.com/anthonykriv
 * [FullPage.js](https://alvarotrigo.com/fullPage/) - Pagination
 * [React](https://reactjs.org/) - Dynamic content loading
 * [Random Color](https://github.com/davidmerfield/randomColor) - Random color tool
-* [dragscroll](https://github.com/asvd/dragscroll) - Drag to scroll
 
 ## License
 
