@@ -1,6 +1,6 @@
 # ak-portfolio
 
-Redesigned portfolio website (anthonykrivonos.com) with interactables and articles!
+Redesigned portfolio website (anthonykrivonos.com)!
 
 ## Legacy Website
 
