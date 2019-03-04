@@ -24,8 +24,8 @@
 
       /* Transition Speeds */
       --carousel-transition-1: 1s;
-      --carousel-transition-2: 0.5s;
-      --carousel-transition-3: 0.3s;
+      --carousel-transition-2: 0.2s;
+      --carousel-transition-3: 0.1s;
 
 }
 

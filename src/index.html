@@ -78,9 +78,8 @@
             <script src="scripts/confetti.js" type="text/javascript"></script>
             <script src="scripts/randomcolor.js" type="text/javascript"></script>
             <script src="scripts/firebase.js" type="text/javascript"></script>
-            <script src="scripts/analytics.js" type="text/javascript"></script>
             <script src="scripts/dragscroll.js"></script>
-
+            <script src="scripts/analytics.js" type="text/javascript"></script>
       </head>
       <body>
             <!-- Navigational Bar -->
@@ -249,7 +248,7 @@
                         //Scrolling
                         css3: true,
                         scrollBar: false,
-                        scrollingSpeed: 900,
+                        scrollingSpeed: 800,
                         autoScrolling: true,
                         fitToSection: true,
                         scrollDelay: 0,
@@ -257,10 +256,10 @@
                         interlockedSlides: false,
                         dragAndMove: true,
                         offsetSections: false,
-                        fadingEffect: true,
+                        fadingEffect: false,
                         scrollOverflow: false,
                         scrollOverflowReset: false,
-                        touchSensitivity: 15,
+                        touchSensitivity: 10,
                         normalScrollElementTouchThreshold: 5,
                         bigSectionsDestination: null,
 
@@ -276,14 +275,14 @@
                         paddingBottom: '0px',
                         fixedElements: '#header, .footer',
                         responsiveSlides: true,
-                        parallax: true,
+                        parallax: false,
                         parallaxOptions: {type: 'reveal', percentage: 50, property: 'translate'},
 
                         //Custom selectors
                         sectionSelector: '.section',
                         slideSelector: '.slide',
 
-                        lazyLoading: false,
+                        lazyLoading: true,
 
                         onLeave: function(origin, destination, direction) {
                               // Called on slide leave
@@ -296,23 +295,35 @@
                                                 // Section 0 Animations
                                                 $("#aboutText").animate("slideOutLeft");
                                                 $("#avatar").animate("fadeOutRight");
-                                                Analytics.sendEvent(EVENT.PAGE_VIEW, null, "0");
+                                                try {
+                                                      Analytics.sendEvent(EVENT.PAGE_VIEW, null, "0");
+                                                } catch {}
                                                 break;
                                           case 1:
                                                 $("#skillsTitle").animate("fadeOutUpBig");
-                                                Analytics.sendEvent(EVENT.PAGE_VIEW, null, "1");
+                                                try {
+                                                      Analytics.sendEvent(EVENT.PAGE_VIEW, null, "1");
+                                                } catch {}
                                                 break;
                                           case 2:
-                                                Analytics.sendEvent(EVENT.PAGE_VIEW, null, "2");
+                                                try {
+                                                      Analytics.sendEvent(EVENT.PAGE_VIEW, null, "2");
+                                                } catch {}
                                                 break;
                                           case 3:
-                                                Analytics.sendEvent(EVENT.PAGE_VIEW, null, "3");
+                                                try {
+                                                      Analytics.sendEvent(EVENT.PAGE_VIEW, null, "3");
+                                                } catch {}
                                                 break;
                                           case 4:
-                                                Analytics.sendEvent(EVENT.PAGE_VIEW, null, "4");
+                                                try {
+                                                      Analytics.sendEvent(EVENT.PAGE_VIEW, null, "4");
+                                                } catch {}
                                                 break;
                                           case 5:
-                                                Analytics.sendEvent(EVENT.PAGE_VIEW, null, "5");
+                                                try {
+                                                      Analytics.sendEvent(EVENT.PAGE_VIEW, null, "5");
+                                                } catch {}
                                                 break;
                                           default:
                                                 break;

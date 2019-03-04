@@ -142,7 +142,28 @@ let About = (props) => {
                   work.forEach((experience) => {
                         experienceObjects.push(new Experience(experience.company, experience.years, experience.position, experience.src, experience.url));
                   });
-                  experienceObjects.sort((a, b) => a.years < b.years);
+                  experienceObjects.sort((a, b) => {
+                        const yearsA = a.years.split('-');
+                        const yearsB = b.years.split('-');
+                        const lastYearA = yearsA[yearsA.length - 1].toLowerCase().trim().trimStart();
+                        const lastYearB = yearsB[yearsB.length - 1].toLowerCase().trim().trimStart();
+                        if (lastYearA.includes('present')) {
+                              return -1;
+                        } else if (lastYearB.includes('present')) {
+                              return 1;
+                        } else if (lastYearB == lastYearA) {
+                              if (yearsA.length > 1 && yearsB.length == 1) {
+                                    return -1;
+                              } else if (yearsA.length == 1 && yearsB.length > 1) {
+                                    return 1;
+                              } else {
+                                    const firstYearA = parseInt(yearsA[0]);
+                                    const firstYearB = parseInt(yearsB[0]);
+                                    return firstYearB - firstYearA;
+                              }
+                        }
+                        return parseInt(lastYearB) - parseInt(lastYearA);
+                  });
                   ReactDOM.render(
                         <ExperienceGroup experiences={experienceObjects}/>,
                         document.getElementById('experienceGroup')
@@ -164,7 +185,28 @@ let About = (props) => {
                               }
                         })
                   });
-                  projectObjects.sort((a, b) => a.years < b.years);
+                  projectObjects.sort((a, b) => {
+                        const yearsA = a.years.split('-');
+                        const yearsB = b.years.split('-');
+                        const lastYearA = yearsA[yearsA.length - 1].toLowerCase().trim().trimStart();
+                        const lastYearB = yearsB[yearsB.length - 1].toLowerCase().trim().trimStart();
+                        if (lastYearA.includes('present')) {
+                              return -1;
+                        } else if (lastYearB.includes('present')) {
+                              return 1;
+                        } else if (lastYearB == lastYearA) {
+                              if (yearsA.length > 1 && yearsB.length == 1) {
+                                    return -1;
+                              } else if (yearsA.length == 1 && yearsB.length > 1) {
+                                    return 1;
+                              } else {
+                                    const firstYearA = parseInt(yearsA[0]);
+                                    const firstYearB = parseInt(yearsB[0]);
+                                    return firstYearB - firstYearA;
+                              }
+                        }
+                        return parseInt(lastYearB) - parseInt(lastYearA);
+                  });
                   ReactDOM.render(
                         <Projects projects={projectObjects}/>,
                         document.getElementById('projectsCarousel')

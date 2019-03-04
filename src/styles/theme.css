@@ -17,8 +17,8 @@
       --container-lg: calc(var(--lg-min) + var(--gutter-width));
 
       /* Animatables */
-      --transition-slow:      1s;
-      --transition-standard:  0.3s;
+      --transition-slow:      0.8s;
+      --transition-standard:  0.2s;
       --transition-fast:      0.1s;
 
       /* Box Shadows */
@@ -276,19 +276,20 @@ button:enabled:hover, a:hover, .chip:hover {
       width: 0%;
       height: 100% !important;
       border-radius: var(--half-gutter-width) !important;
-      background-position: left !important;
-      background-clip: padding-box !important;
+      background-position: center !important;
+      background-origin: content-box !important;
+      background-clip: content-box !important;
       background-repeat: no-repeat !important;
-      background-size: cover;
+      background-size: cover !important;
       transition: var(--transition-standard);
       -webkit-transition: var(--transition-standard);
 }
 .experience-group:hover .experience-image {
       opacity: 1;
-      width: 15%;
+      width: 10%;
 }
 .experience-group:hover .experience-text {
-      width: 85%;
+      width: 90%;
 }
 .experience-text {
       width: 100%;
@@ -371,8 +372,8 @@ button:enabled:hover, a:hover, .chip:hover {
       height: 0;
       padding: 0;
       opacity: 0;
-      transition: var(--transition-standard);
-      -webkit-transition: var(--transition-standard);
+      transition: var(--transition-fast);
+      -webkit-transition: var(--transition-fast);
 }
 .carousel-tile:hover .carousel-text {
       height: 10vh;
