@@ -21,22 +21,45 @@ const GENERAL_KEY = "general";
 // MARK: - ExperienceGroup
 let ExperienceGroup = (props) => {
 
+      const isShortWindow = window.innerHeight < 750
+
       const experienceCards = props.experiences.map((experience, i) =>
             <div key={i} value={i} className="card margin-md-bottom">
                   <div className="experience-group">
                         <a href={experience.url} style={{'background': `url(${experience.src})`}} className="experience-image"></a>
                         <div className="experience-text">
                               <span className="experience-title font-size-sm">{experience.company}</span>
-                              <span className="experience-year">{experience.years}</span>
                               <div className="experience-position">{experience.position}</div>
+                              <div className="experience-year">{experience.years}</div>
                         </div>
                   </div>
             </div>
       );
+      
+      let pairOrderedCardsEven = []
+      let pairOrderedCardsOdd = []
+      if (isShortWindow) {
+            experienceCards.forEach((exp, i) => {
+                  if (i % 2 == 0) {
+                        pairOrderedCardsEven.push(exp)
+                  } else {
+                        pairOrderedCardsOdd.push(exp)
+                  }
+            })
+      }
 
       return (
+            !isShortWindow ?
             <div className="row brag-cards">
                   {experienceCards}
+            </div> :
+            <div className="row brag-cards">
+                  <div className="half-width">
+                        {pairOrderedCardsEven}
+                  </div>
+                  <div className="half-width">
+                        {pairOrderedCardsOdd}
+                  </div>
             </div>
       );
 };
@@ -229,7 +252,11 @@ let About = (props) => {
                   );
                   ReactDOM.render(
                         <About text={text} links={links}/>,
-                        document.getElementById('about')
+                        document.getElementById('about-md')
+                  );
+                  ReactDOM.render(
+                        <About text={text} links={links}/>,
+                        document.getElementById('about-xs')
                   );
             });
 

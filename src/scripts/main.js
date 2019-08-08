@@ -200,7 +200,6 @@ let isValidMessage = (message) => {
 
 let validateFields = () => {
       var isValid = isValidName(document.getElementsByName("from")[0].value) && isValidEmail(document.getElementsByName("email")[0].value) && isValidSubject(document.getElementsByName("subject")[0].value) && isValidMessage(document.getElementsByName("message")[0].value);
-
       document.getElementById("sendButton").disabled = !isValid;
 };
 

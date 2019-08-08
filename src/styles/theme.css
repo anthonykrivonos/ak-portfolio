@@ -265,7 +265,6 @@ button:enabled:hover, a:hover, .chip:hover {
 
 /* Custom Experience Group */
 .experience-group {
-      width: 100%;
       padding: 1vw;
 }
 .experience-group .experience-image {
@@ -286,19 +285,20 @@ button:enabled:hover, a:hover, .chip:hover {
 }
 .experience-group:hover .experience-image {
       opacity: 1;
-      width: 10%;
+      width: 20%;
 }
 .experience-group:hover .experience-text {
-      width: 90%;
+      width: 80%;
 }
 .experience-text {
       width: 100%;
+      padding: 4px;
       float: right;
       transition: var(--transition-standard);
       -webkit-transition: var(--transition-standard);
 }
 .experience-title {
-      width: 70%;
+      width: 100%;
       height: 4vh;
       float: left;
       text-align: left;
@@ -308,10 +308,9 @@ button:enabled:hover, a:hover, .chip:hover {
       text-overflow: ellipsis;
 }
 .experience-year {
-      width: 30%;
+      width: 100%;
       height: 4vh;
-      float: right;
-      text-align: right;
+      margin-top: 4px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -453,8 +452,9 @@ button:enabled:hover, a:hover, .chip:hover {
 .brag-cards {
       padding: 4vw !important;
 }
-.brag-cards .col {
-      padding: 2vw !important;
+.half-width {
+      width: 50%;
+      flex-direction: row;
 }
 .brag-cards .card {
       border-radius: var(--half-gutter-width) !important;
